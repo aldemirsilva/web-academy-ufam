@@ -1,0 +1,22 @@
+body {
+  background-color: lightblue;
+  background-image: url("https://thumbs.dreamstime.com/z/nebulosa-do-anel-sul-colagem-espacial-jwst-pesquisa-telesc%C3%B3pio-james-webb-em-gal%C3%A1xias-espa%C3%A7o-profundo-elementos-deste-forno-de-256973654.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
+div {
+  border: 20px solid rgba(139, 69, 19, 0.911);
+  border-radius: 30px;
+  background-color: rgba(245, 245, 220, 0.5);
+  padding: 10px;
+  margin: 15vh 15vw;
+  width: 35vh;
+  box-shadow:
+    4px 4px,
+    4px 4px inset;
+  font-size: large;
+  text-align: center;
+  font-family: sans-serif;
+  height: 100%;
+}
