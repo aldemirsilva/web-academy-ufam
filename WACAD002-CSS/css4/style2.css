@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas:
+    "header header header header"
+    "main main aside aside"
+    "main main nav footer";
+  gap: 10px;
+}
+
+header {
+  grid-area: header;
+  background-color: #8B0000;
+  border-radius: 10px;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #00008B;
+  border-radius: 10px;
+}
+
+main {
+  grid-area: main;
+  background-color: #006400;
+  border-radius: 10px;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #8B008B;
+  border-radius: 10px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #FF8C00;
+  border-radius: 10px;
+}
