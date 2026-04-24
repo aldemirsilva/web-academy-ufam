@@ -7,6 +7,7 @@
     "main main aside aside"
     "main main nav footer";
   gap: 10px;
+  padding: 10px;
 }
 
 header {
