@@ -9,50 +9,36 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-// Raw text strings
-
-// Willy the Goblin
-// Big Daddy
-// Father Christmas
-
-// the soup kitchen
-// Disneyland
-// the White House
-
-// spontaneously combusted
-// melted into a puddle on the sidewalk
-// turned into a slug and slithered away
-
-let pessoas = [
-  "Leia Skywalker",
-  "Luke Skywalker",
-  "Han Solo",
-  "Darth Vader",
-  "Obi-Wan Kenobi",
-  "Yoda",
-];
-
-let locais = [
-  "Sarlacc pit",
-  "Tatooine",
-  "The Death Star",
-  "Endor",
-  "Hoth",
-  "Dagobah",
-];
-
-let acoes = [
-  "used the Force to levitate and leave the battle",
-  "choke slammed Sarlacc using the Force",
-  "shot Greedo in the face",
-  "used a lightsaber to cut a stormtrooper in half",
-  "force pushed a rock to crush the stormtroopers",
-  "force pulled a blaster out of a stormtrooper's hand",
-];
-
 // Partial return random string function
 
 function returnRandomStoryString() {
+  let pessoas = [
+    "Leia Skywalker",
+    "Luke Skywalker",
+    "Han Solo",
+    "Darth Vader",
+    "Obi-Wan Kenobi",
+    "Yoda",
+  ];
+
+  let locais = [
+    "Sarlacc pit",
+    "Tatooine",
+    "The Death Star",
+    "Endor",
+    "Hoth",
+    "Dagobah",
+  ];
+
+  let acoes = [
+    "used the Force to levitate and leave the battle",
+    "choke slammed Sarlacc using the Force",
+    "shot Greedo in the face",
+    "used a lightsaber to cut a stormtrooper in half",
+    "force pushed a rock to crush the stormtroopers",
+    "force pulled a blaster out of a stormtrooper's hand",
+  ];
+
   let storyText =
     "It was 100 Fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: has 300 pounds of pure Force, and it was a hot day.";
 
