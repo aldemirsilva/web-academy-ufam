@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compra</title>
+</head>
+
+<body>
+  <div id="resumo-carrinho">
+    <h2>Fechamento do Pedido</h2>
+
+    <!-- Valores que o JS precisa ler -->
+    <label>Subtotal dos Produtos (R$):</label>
+    <input type="number" id="valor-subtotal" value="150.00">
+    <br><br>
+
+    <label>Valor do Frete (R$):</label>
+    <input type="number" id="valor-frete" value="25.50">
+    <br><br>
+
+    <!-- Lista para ser contada -->
+    <h3>Itens na sua caixa:</h3>
+    <ul id="lista-produtos">
+      <li class="produto-comprado">Camiseta Básica Preta</li>
+      <li class="produto-comprado">Calça Jeans Tradicional</li>
+      <li class="produto-comprado">Par de Meias Brancas</li>
+    </ul>
+
+    <script>
+      const valorSubtotal = document.querySelector("#valor-subtotal");
+      const valorFrete = document.querySelector("#valor-frete")
+      const listaProdutos = document.querySelectorAll(".produto-comprado")
+      const quantidade = listaProdutos.length
+
+      console.log(`Quantidade de itens na caixa: ${quantidade}`)
+      console.log(`Subtotal: ${Number(valorSubtotal.value)}`)
+      console.log(`Frete: ${Number(valorFrete.value)}`)
+      console.log(`Total a pagar: ${Number(valorSubtotal.value) + Number(valorFrete.value)}`)
+    </script>
+  </div>
+</body>
+
+</html>
