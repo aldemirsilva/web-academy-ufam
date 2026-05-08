@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <div id="app-tarefas">
+    <h3>Minhas Tarefas</h3>
+
+    <!-- Campo de digitação e botão de ação -->
+    <input type="text" id="input-nova-tarefa" placeholder="Digite uma tarefa...">
+    <button id="btn-adicionar">Adicionar Tarefa</button>
+
+    <!-- Lista onde as tarefas vão aparecer -->
+    <ul id="lista-tarefas">
+      <li>Revisar código da aula passada</li>
+    </ul>
+  </div>
+  <script>
+    const listaTarefas = document.getElementById("lista-tarefas")
+    const input = document.getElementById("input-nova-tarefa")
+    const botao = document.getElementById("btn-adicionar")
+
+    botao.addEventListener("click", (e) => {
+      console.log(input.value)
+      const item = document.createElement("li")
+      item.innerText = input.value
+
+      if (item.innerText != "") {
+        listaTarefas.appendChild(item)
+      }
+
+      input.value = ""
+    })
+  </script>
+</body>
+
+</html>
