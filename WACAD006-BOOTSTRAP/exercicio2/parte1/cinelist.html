@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineList - Painel Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+    <div class="container navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="#">CineList Admin</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sair</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <h2>Gerenciar catálogo</h2>
+  </div>
+
+  <main class="container">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
+        data-bs-target="#adicionarFilme">Adicionar</button>
+    </div>
+
+    <div class="rounded-2 overflow-hidden border">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <th>ID</th>
+          <th>Título</th>
+          <th>Gênero</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>O Senhor dos Anéis</td>
+            <td>Fantasia</td>
+            <td><span class="badge text-bg-success">Assistido</span></td>
+            <td>
+              <button type="button" class="btn btn-outline-primary">Editar</button>
+              <button type="button" class="btn btn-outline-danger">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Interestelar</td>
+            <td>Ficção Científica</td>
+            <td><span class="badge text-bg-warning">Pendente</span></td>
+            <td>
+              <button type="button" class="btn btn-outline-primary">Editar</button>
+              <button type="button" class="btn btn-outline-danger">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>O Poderoso Chefão</td>
+            <td>Drama</td>
+            <td><span class="badge text-bg-success">Assistido</span></td>
+            <td>
+              <button type="button" class="btn btn-outline-primary">Editar</button>
+              <button type="button" class="btn btn-outline-danger">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div class="modal fade" id="adicionarFilme" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Novo Filme</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" id="titulo" class="form-control mb-3" placeholder="Ex: Matrix">
+
+            <label for="genero" class="form-label">Gênero</label>
+            <select id="genero" class="form-select mb-3" aria-label="Default select example">
+              <option selected>Selecione...</option>
+              <option value="1">Ação</option>
+              <option value="2">Comédia</option>
+              <option value="3">Drama</option>
+              <option value="4">Fantasia</option>
+              <option value="5">Ficção Científica</option>
+            </select>
+
+            <label for="ano" class="form-label">Ano</label>
+            <input type="text" id="ano" class="form-control mb-3" placeholder="Ex: 1999">
+
+            <label for="sinopse" class="form-label">Sinopse</label>
+            <textarea id="sinopse" class="form-control mb-3" rows="3"
+              placeholder="Escreva a sinopse do filme..."></textarea>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
