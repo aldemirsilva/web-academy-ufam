@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch src --exec node src/index.js",
-    "start:prod": "node src/index.js",
+    "start": "NODE_ENV=development nodemon --watch src --ext js,ts,json --exec node src/index.js",
+    "start:prod": "NODE_ENV=production node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
