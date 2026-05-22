@@ -1,7 +1,7 @@
-import fs from "fs";
-import http from "http";
-import dotenv from "dotenv";
-import links from "./utils/links.js";
+import { fs } from "fs";
+import { http } from "http";
+import { dotenv } from "dotenv";
+import { createLink, createBackLink } from "./utils/links.js";
 
 dotenv.config({
   quiet: true,
