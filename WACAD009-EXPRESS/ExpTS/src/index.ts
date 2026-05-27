@@ -1,5 +1,5 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express, { type Request, type Response } from "express";
+import dotenv from "dotenv";
 
 dotenv.config({
   quiet: true,
@@ -9,7 +9,7 @@ dotenv.config({
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
