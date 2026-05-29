@@ -13,7 +13,7 @@
     "format": "prettier --write src/"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aldemir Rodrigues da Silva",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
