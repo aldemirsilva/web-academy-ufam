@@ -12,7 +12,7 @@ export function createRow(id: number, todo: TodoTuple): string {
         <td>
           <button type="button" class="btn btn-sm btn-outline-primary"
             data-bs-toggle="modal" data-bs-target="#modalEditar"
-            data-id="${id}" data-titulo="${titulo.replace(/"/g, '&quot;')}">Editar</button>
+            data-id="${id}" data-titulo="${titulo.replace(/"/g, "&quot;")}">Editar</button>
           <form method="post" action="/todo/${id}/delete" class="d-inline">
             <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
           </form>

@@ -1,0 +1,24 @@
+{
+  "name": "wacad008-turma",
+  "version": "1.0.0",
+  "description": "Estatísticas de Turma — TypeScript + Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon --watch src --watch public --ext ts,json,html --exec ts-node src/index.ts",
+    "build": "tsc",
+    "start:prod": "NODE_ENV=production node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.0.0",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
