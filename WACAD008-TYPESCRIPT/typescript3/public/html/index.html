@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+      <span class="navbar-brand fw-bold fs-4">Carrinho de Compras</span>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Estatísticas do carrinho -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="card text-center border-primary h-100">
+          <div class="card-body py-3">
+            <div class="text-muted small">Itens no Carrinho</div>
+            <div class="fs-2 fw-bold text-primary">{{NUM_ITENS}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card text-center border-success h-100">
+          <div class="card-body py-3">
+            <div class="text-muted small">Total</div>
+            <div class="fs-4 fw-bold text-success">{{TOTAL}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão inserir produto -->
+    <div class="d-flex justify-content-end mb-3">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalInserir">
+        Adicionar Produto
+      </button>
+    </div>
+
+    <!-- Tabela de produtos -->
+    <div class="table-responsive rounded border">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>Tipo</th>
+            <th>Fabricante</th>
+            <th>Modelo</th>
+            <th>Detalhes</th>
+            <th>Valor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ROWS}}
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Modal: Adicionar Produto -->
+  <div class="modal fade" id="modalInserir" tabindex="-1" aria-labelledby="modalInserirLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalInserirLabel">Adicionar Produto ao Carrinho</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+
+        <form method="post" action="/produto">
+          <div class="modal-body">
+
+            <!-- Tipo de produto -->
+            <div class="mb-3">
+              <label for="tipo" class="form-label fw-semibold">Tipo de Produto</label>
+              <select id="tipo" name="tipo" class="form-select" onchange="atualizarCampos()" required>
+                <option value="tv">TV</option>
+                <option value="celular">Celular</option>
+                <option value="bicicleta">Bicicleta</option>
+              </select>
+            </div>
+
+            <!-- Campos comuns -->
+            <div class="row g-2 mb-3">
+              <div class="col-8">
+                <label for="modelo" class="form-label">Modelo</label>
+                <input type="text" id="modelo" name="modelo" class="form-control" maxlength="80"
+                  placeholder="Ex: Galaxy S24, Smart TV 55" required>
+              </div>
+              <div class="col-4">
+                <label for="valor" class="form-label">Valor (R$)</label>
+                <input type="number" id="valor" name="valor" class="form-control" step="0.01" min="0" placeholder="0,00"
+                  required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="fabricante" class="form-label">Fabricante</label>
+              <input type="text" id="fabricante" name="fabricante" class="form-control" maxlength="60"
+                placeholder="Ex: Samsung, Apple, Caloi" required>
+            </div>
+
+            <!-- Campos específicos: TV -->
+            <div id="campos-tv">
+              <hr class="my-2">
+              <div class="row g-2">
+                <div class="col-6">
+                  <label for="resolucao" class="form-label">Resolução</label>
+                  <input type="text" id="resolucao" name="resolucao" class="form-control"
+                    placeholder="Ex: 4K, Full HD, 8K">
+                </div>
+                <div class="col-6">
+                  <label for="tamanho" class="form-label">Tamanho (polegadas)</label>
+                  <input type="number" id="tamanho" name="tamanho" class="form-control" min="10" max="120"
+                    placeholder="Ex: 55">
+                </div>
+              </div>
+            </div>
+
+            <!-- Campos específicos: Celular -->
+            <div id="campos-celular" style="display:none">
+              <hr class="my-2">
+              <div class="mb-2">
+                <label for="memoria" class="form-label">Memória</label>
+                <input type="text" id="memoria" name="memoria" class="form-control" placeholder="Ex: 128GB, 256GB">
+              </div>
+            </div>
+
+            <!-- Campos específicos: Bicicleta -->
+            <div id="campos-bicicleta" style="display:none">
+              <hr class="my-2">
+              <div class="mb-2">
+                <label for="aro" class="form-label">Tamanho do Aro</label>
+                <input type="number" id="aro" name="aro" class="form-control" min="10" max="36" placeholder="Ex: 29">
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Adicionar ao Carrinho</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function atualizarCampos() {
+      const tipo = document.getElementById('tipo').value;
+      document.getElementById('campos-tv').style.display = tipo === 'tv' ? '' : 'none';
+      document.getElementById('campos-celular').style.display = tipo === 'celular' ? '' : 'none';
+      document.getElementById('campos-bicicleta').style.display = tipo === 'bicicleta' ? '' : 'none';
+    }
+  </script>
+
+</body>
+
+</html>
