@@ -1,0 +1,78 @@
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- ── Modal: Adicionar Lembrete ── -->
+  <div class="modal fade" id="modalAdicionar" tabindex="-1"
+    aria-labelledby="modalAdicionarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalAdicionarLabel">Novo Lembrete</h5>
+          <button type="button" class="btn-close btn-close-white"
+            data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+
+        <form method="post" action="/todo">
+          <div class="modal-body">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" id="titulo" name="titulo" class="form-control"
+              placeholder="Ex: Estudar TypeScript" required>
+            <div class="form-text">A data e hora de inserção são registradas automaticamente.</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Modal: Editar Lembrete ── -->
+  <div class="modal fade" id="modalEditar" tabindex="-1"
+    aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalEditarLabel">Editar Lembrete</h5>
+          <button type="button" class="btn-close btn-close-white"
+            data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+
+        <form id="formEditar" method="post" action="">
+          <div class="modal-body">
+            <label for="tituloEditar" class="form-label">Título</label>
+            <input type="text" id="tituloEditar" name="titulo" class="form-control" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('modalEditar').addEventListener('show.bs.modal', function (event) {
+      const btn = event.relatedTarget;
+      const id = btn.getAttribute('data-id');
+      const titulo = btn.getAttribute('data-titulo');
+      document.getElementById('formEditar').action = '/todo/' + id + '/edit';
+      document.getElementById('tituloEditar').value = titulo;
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lembretes / To Do List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar navbar-expand-lg mb-4">
+    <div class="container navbar-dark bg-dark rounded-2 px-3 py-2">
+      <a class="navbar-brand text-white fw-bold" href="/">Lembretes</a>
+    </div>
+  </nav>
+
+  <!-- ── Conteúdo principal ── -->
+  <main class="container">
+
+    <!-- Botão Adicionar (abre modal) -->
+    <div class="d-flex justify-content-end mb-3">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdicionar">
+        Adicionar Lembrete
+      </button>
+    </div>
+
+    <!-- Tabela de lembretes -->
+    <div class="rounded-2 overflow-hidden border">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Data e Hora de Inserção</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
