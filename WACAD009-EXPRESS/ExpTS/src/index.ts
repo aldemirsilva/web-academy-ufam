@@ -2,10 +2,15 @@ import express from "express";
 import getEnv from "./utils/getEnv";
 import logger from "./middlewares/logger/logger";
 import router from "./router/router";
+import { engine } from "express-handlebars";
 
 const app = express();
 const env = getEnv();
 const PORT = env.PORT;
+
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+// app.set("views", `${process.cwd()}/src/views`);
 
 app.use(logger("complete"));
 

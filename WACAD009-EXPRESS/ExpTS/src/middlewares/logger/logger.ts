@@ -32,7 +32,7 @@ function logger(type: LogType) {
       next();
     };
   } else {
-    return async (_req: Request, _res: Response, next: NextFunction) => {
+    return async (req: Request, res: Response, next: NextFunction) => {
       console.log("Opção de log inválida.\n");
       next();
     };
