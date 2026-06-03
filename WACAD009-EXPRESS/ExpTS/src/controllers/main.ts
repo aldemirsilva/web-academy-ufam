@@ -31,13 +31,13 @@ const lorem = (req: Request, res: Response) => {
 
 const hb1 = (req: Request, res: Response) => {
   const message = "Bem-vindo(a) ao Web Academy!"
-  res.render("hb1", {
+  res.render("main/hb1", {
     message,
   })
 }
 
 const hb2 = (req: Request, res: Response) => {
-  res.render("hb2", {
+  res.render("main/hb2", {
     poweredByNodeJs: true,
     name: "Express",
     type: "Framework",
@@ -52,7 +52,7 @@ const hb3 = (req: Request, res: Response) => {
     { nome: "Edleno Moura", sala: 1236 },
     { nome: "Elaine Harada", sala: 1231 },
   ]
-  res.render("hb3", {
+  res.render("main/hb3", {
     profs,
   })
 }
@@ -67,8 +67,9 @@ const hb4 = (req: Request, res: Response) => {
     { name: "Docker", type: "Virtualization", poweredByNodeJs: false },
     { name: "Sequelize", type: "ORM tool", poweredByNodeJs: true },
   ]
-  res.render("hb4", {
+  res.render("main/hb4", {
     technologies,
+    layout: "main2",
   })
 }
 

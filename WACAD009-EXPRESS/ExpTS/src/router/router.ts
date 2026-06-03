@@ -3,6 +3,7 @@ import MainController from "../controllers/main"
 
 const router = Router()
 
+// Main controller
 router.get("/", MainController.index)
 router.get("/about", MainController.about)
 router.get("/bem-vindo/:nome", MainController.welcome)
