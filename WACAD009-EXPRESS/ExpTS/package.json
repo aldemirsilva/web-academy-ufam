@@ -20,14 +20,15 @@
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.9.1",
-    "eslint": "^10.4.0",
+    "eslint": "^10.4.1",
     "globals": "^17.6.0",
     "jiti": "^2.7.0",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.3",
+    "ts-node": "^10.9.2",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.60.0"
+    "typescript-eslint": "^8.60.1"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
@@ -35,6 +36,6 @@
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
     "lorem-ipsum": "^3.0.0",
-    "morgan": "^1.10.1"
+    "morgan": "^1.11.0"
   }
 }

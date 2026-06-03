@@ -62,6 +62,22 @@ router.get("/hb3", (req, res) => {
   });
 });
 
+router.get("/hb4", (req, res) => {
+  const technologies = [
+    { name: "Express", type: "Framework", poweredByNodeJs: true },
+    { name: "Laravel", type: "Framework", poweredByNodeJs: false },
+    { name: "React", type: "Library", poweredByNodeJs: true },
+    { name: "Handlebars", type: "Engine View", poweredByNodeJs: true },
+    { name: "Django", type: "Framework", poweredByNodeJs: false },
+    { name: "Docker", type: "Virtualization", poweredByNodeJs: false },
+    { name: "Sequelize", type: "ORM tool", poweredByNodeJs: true },
+  ];
+  res.render("hb4", {
+    technologies,
+    layout: false,
+  });
+});
+
 router.use((req, res) => {
   res.statusCode = 404;
   res.send("Erro 404: Página não encontrada.");
