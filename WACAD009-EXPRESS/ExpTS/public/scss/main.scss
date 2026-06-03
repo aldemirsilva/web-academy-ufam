@@ -1,0 +1,9 @@
+$primary: green;
+$space: 4px;
+$bottom: 1px;
+
+h1 {
+  color: $primary;
+  margin-top: $space * 2;
+  bottom: $bottom * 3;
+}

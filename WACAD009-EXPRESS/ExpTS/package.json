@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/",
     "lint:fix": "npx eslint --fix src/",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "sass": "sass public/scss/main.scss public/css/main.css --watch"
   },
   "keywords": [],
   "author": "Aldemir Rodrigues da Silva",
@@ -36,6 +37,7 @@
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
     "lorem-ipsum": "^3.0.0",
-    "morgan": "^1.11.0"
+    "morgan": "^1.11.0",
+    "sass": "^1.100.0"
   }
 }
