@@ -10,7 +10,6 @@ const PORT = env.PORT;
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
-// app.set("views", `${process.cwd()}/src/views`);
 
 app.use(logger("complete"));
 

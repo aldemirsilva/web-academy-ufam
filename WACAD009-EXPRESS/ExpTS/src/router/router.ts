@@ -54,7 +54,7 @@ router.get("/hb3", (req, res) => {
     { nome: "David Fernandes", sala: 1238 },
     { nome: "Horácio Fernades", sala: 1233 },
     { nome: "Edleno Moura", sala: 1236 },
-    { nome: "Elaine Harda", sala: 1231 },
+    { nome: "Elaine Harada", sala: 1231 },
   ];
   res.render("hb3", {
     profs,
