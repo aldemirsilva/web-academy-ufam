@@ -69,7 +69,6 @@ const hb4 = (req: Request, res: Response) => {
   ]
   res.render("main/hb4", {
     technologies,
-    layout: "main2",
   })
 }
 
