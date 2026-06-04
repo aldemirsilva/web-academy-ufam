@@ -27,6 +27,8 @@ app.use("/img", express.static(`${process.cwd()}/public/img`))
 app.use("/css", express.static(`${process.cwd()}/public/css`))
 app.use("/js", express.static(`${process.cwd()}/public/js`))
 
+app.use(express.urlencoded({ extended: false }))
+
 app.use(router)
 
 app.listen(PORT, () => {

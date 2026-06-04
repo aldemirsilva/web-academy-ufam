@@ -11,7 +11,8 @@
     "lint": "eslint src/",
     "lint:fix": "npx eslint --fix src/",
     "format": "prettier --write src/",
-    "sass": "sass public/scss/main.scss public/css/main.css --watch"
+    "sass": "sass public/scss/main.scss public/css/main.css --watch",
+    "start:db": "npx json-server --watch data/db.json --port 8765"
   },
   "keywords": [],
   "author": "Aldemir Rodrigues da Silva",
@@ -36,6 +37,7 @@
     "envalid": "^8.1.1",
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
+    "json-server": "^1.0.0-beta.15",
     "lorem-ipsum": "^3.0.0",
     "morgan": "^1.11.0",
     "sass": "^1.100.0"

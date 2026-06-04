@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <h4>Edição de produtos</h4>
+  <h4><a href="/products"><i class="bi bi-arrow-left-square"></i></a></h4>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <form action="/products/update/{{product.id}}" method="post">
+      {{> productForm}}
+    </form>
+  </div>
+</div>

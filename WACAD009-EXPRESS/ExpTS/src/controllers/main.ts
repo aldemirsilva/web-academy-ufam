@@ -74,7 +74,7 @@ const hb4 = (req: Request, res: Response) => {
 
 const not_found = (req: Request, res: Response) => {
   res.statusCode = 404
-  res.send("Erro 404: Página não encontrada.")
+  res.send("<h1>Erro 404: Página não encontrada.</h1>")
 }
 
 export default { index, about, welcome, lorem, hb1, hb2, hb3, hb4, not_found }

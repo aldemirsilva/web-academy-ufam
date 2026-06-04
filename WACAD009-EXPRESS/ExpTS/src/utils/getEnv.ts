@@ -11,6 +11,7 @@ const getEnv = () => {
     NODE_ENV: str({ choices: ["development", "production", "test"] }),
     PORT: port({ default: 3000 }),
     LOGGER_PATH: str({ default: "logs" }),
+    API_PATH: str(),
   })
 }
 
