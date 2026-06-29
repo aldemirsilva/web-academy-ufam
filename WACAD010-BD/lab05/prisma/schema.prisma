@@ -1,0 +1,169 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Representa os clientes cadastrados no sistema.
+model cliente {
+  // CPF do cliente, usado como chave primária.
+  cpf             String   @id @db.VarChar(14)
+  // Nome completo do cliente.
+  nome_completo   String   @db.VarChar(45)
+  // Número de celular do cliente.
+  celular         String   @db.VarChar(20)
+  // E-mail do cliente.
+  e_mail          String   @db.VarChar(50)
+  // Data de nascimento do cliente.
+  data_nascimento DateTime @db.Date
+
+  // Relação de um cliente para vários endereços.
+  enderecos endereco[]
+  // Relação de um cliente para várias compras.
+  compras   compra[]
+}
+
+// Representa os endereços vinculados a um cliente.
+model endereco {
+  // Identificador único do endereço.
+  id_endereco Int    @id @default(autoincrement())
+  // Chave estrangeira que aponta para cliente.cpf.
+  cpf_cliente String @db.VarChar(14)
+  // Logradouro do endereço.
+  logradouro  String @db.VarChar(50)
+  // Número do endereço.
+  numero      String @db.VarChar(6)
+  // CEP do endereço.
+  cep         String @db.VarChar(9)
+  // Estado da localidade.
+  estado      String @db.VarChar(2)
+  // Cidade do endereço.
+  cidade      String @db.VarChar(50)
+  // Bairro do endereço.
+  bairro      String @db.VarChar(50)
+
+  // Relação que liga o endereço ao cliente.
+  cliente cliente  @relation(fields: [cpf_cliente], references: [cpf])
+  // Relação de um endereço para várias compras que podem usá-lo no envio.
+  compras compra[]
+}
+
+// Representa uma compra realizada pelo cliente.
+model compra {
+  // Identificador único da compra.
+  id_compra         Int     @id @default(autoincrement())
+  // Chave estrangeira que aponta para o cliente que realizou a compra.
+  cpf_cliente       String  @db.VarChar(14)
+  // Chave estrangeira que aponta para o endereço de envio.
+  id_endereco_envio Int     @db.Int
+  // Data e hora em que a compra foi registrada.
+  data_hora         String  @db.VarChar(45)
+  // Forma de pagamento utilizada na compra.
+  forma_pagamento   String  @db.VarChar(45)
+  // Valor total da compra.
+  total_compra      Decimal @db.Decimal(7, 2)
+  // Valor de desconto aplicado na compra.
+  desconto          Decimal @db.Decimal(7, 2)
+
+  // Relação com o cliente que realizou a compra.
+  cliente  cliente  @relation(fields: [cpf_cliente], references: [cpf])
+  // Relação com o endereço usado no envio.
+  endereco endereco @relation(fields: [id_endereco_envio], references: [id_endereco])
+
+  // Relação com os itens da compra.
+  itens item_compra[]
+}
+
+// Representa os produtos cadastrados no sistema.
+model produto {
+  // Identificador único do produto.
+  id_produto      Int     @id @default(autoincrement())
+  // Chave estrangeira que aponta para a subcategoria do produto.
+  id_subcategoria Int     @db.Int
+  // Modelo do produto.
+  modelo          String  @db.VarChar(45)
+  // Fabricante do produto.
+  fabricante      String  @db.VarChar(45)
+  // Quantidade disponível em estoque.
+  qtd_disponivel  Int     @db.Int
+  // Preço base do produto.
+  preco_base      Decimal @db.Decimal(7, 2)
+
+  // Relação com a subcategoria à qual o produto pertence.
+  subcategoria subcategoria @relation(fields: [id_subcategoria], references: [id_subcategoria])
+
+  // Relação com os itens de compra que utilizam este produto.
+  itens            item_compra[]
+  // Relação com os números de série associados ao produto.
+  numeros_de_serie numero_de_serie[]
+}
+
+// Representa as categorias principais dos produtos.
+model categoria {
+  // Identificador único da categoria.
+  id_categoria Int    @id @default(autoincrement())
+  // Nome da categoria.
+  nome         String @db.VarChar(45)
+
+  // Relação de uma categoria para várias subcategorias.
+  subcategorias subcategoria[]
+}
+
+// Representa as subcategorias ligadas a uma categoria.
+model subcategoria {
+  // Identificador único da subcategoria.
+  id_subcategoria Int    @id @default(autoincrement())
+  // Chave estrangeira que aponta para a categoria.
+  id_categoria    Int    @db.Int
+  // Nome da subcategoria.
+  nome            String @db.VarChar(45)
+
+  // Relação que liga a subcategoria à sua categoria.
+  categoria categoria @relation(fields: [id_categoria], references: [id_categoria])
+  // Relação de uma subcategoria para vários produtos.
+  produtos  produto[]
+}
+
+// Tabela associativa entre compra e produto.
+model item_compra {
+  // Chave estrangeira que aponta para a compra.
+  id_compra  Int
+  // Chave estrangeira que aponta para o produto.
+  id_produto Int
+  // Quantidade do produto comprada.
+  qtd        Int
+  // Preço unitário do produto no momento da compra.
+  preco      Decimal @db.Decimal(7, 2)
+
+  // Relação com a compra à qual o item pertence.
+  compra  compra  @relation(fields: [id_compra], references: [id_compra])
+  // Relação com o produto comprado.
+  produto produto @relation(fields: [id_produto], references: [id_produto])
+
+  // Chave primária composta formada por compra e produto.
+  @@id([id_compra, id_produto])
+}
+
+// Entidade fraca que guarda os números de série dos produtos.
+model numero_de_serie {
+  // Número de série do produto.
+  numero_de_serie String
+  // Chave estrangeira que aponta para o produto dono do número de série.
+  id_produto      Int
+
+  // Relação com o produto ao qual o número de série pertence.
+  produto produto @relation(fields: [id_produto], references: [id_produto])
+
+  // Chave primária composta: número de série + produto.
+  @@id([numero_de_serie, id_produto])
+}
