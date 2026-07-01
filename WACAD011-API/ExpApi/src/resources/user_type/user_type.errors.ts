@@ -5,7 +5,7 @@ import {
 } from "../../generated/prisma/internal/prismaNamespace.js";
 import { StatusCodes } from "http-status-codes";
 
-export function productErrors(err: any, res: Response) {
+export function userTypeErrors(err: any, res: Response) {
   if (err instanceof PrismaClientValidationError) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       error: "Validation Error",

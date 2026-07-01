@@ -1,8 +1,8 @@
-import { type Product } from "../../generated/prisma/client.js";
+import { type Product, Prisma } from "../../generated/prisma/client.js";
 import { prisma } from "../../utils/prismaClient.js";
 import { type CreateProductDTO } from "./product.types.js";
 
-export async function getProducts(): Promise<Product[] | null> {
+export async function getProducts(): Promise<Product[]> {
   return await prisma.product.findMany();
 }
 
@@ -24,7 +24,17 @@ export async function updateProduct(
 
   if (!product) return null;
 
-  return await prisma.product.update({ where: { id }, data });
+  try {
+    return await prisma.product.update({ where: { id }, data });
+  } catch (e) {
+    if (
+      e instanceof Prisma.PrismaClientKnownRequestError &&
+      e.code === "P2025"
+    ) {
+      return null;
+    }
+    throw e;
+  }
 }
 
 export async function deleteProduct(id: string): Promise<Product | null> {
@@ -32,5 +42,15 @@ export async function deleteProduct(id: string): Promise<Product | null> {
 
   if (!product) return null;
 
-  return await prisma.product.delete({ where: { id } });
+  try {
+    return await prisma.product.delete({ where: { id } });
+  } catch (e) {
+    if (
+      e instanceof Prisma.PrismaClientKnownRequestError &&
+      e.code === "P2025"
+    ) {
+      return null;
+    }
+    throw e;
+  }
 }

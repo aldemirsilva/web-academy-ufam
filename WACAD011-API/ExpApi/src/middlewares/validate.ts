@@ -7,7 +7,7 @@ function validate(schema: Schema) {
     const { error } = schema.validate(req.body, {
       abortEarly: false,
     });
-    if (error) res.status(StatusCodes.BAD_REQUEST).json(error);
+    if (error) res.status(StatusCodes.UNPROCESSABLE_ENTITY).json(error);
     else next();
   };
 }
