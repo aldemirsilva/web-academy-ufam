@@ -1,0 +1,34 @@
+services:
+  bdcontainer:
+    container_name: bdcontainer
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass2023
+    volumes:
+      - vol_mysql:/var/lib/mysql
+    networks:
+      - rede_bd
+
+  bdguicontainer:
+    container_name: bdguicontainer
+    image: phpmyadmin:latest
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: bdcontainer
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: pass2023
+    depends_on:
+      - bdcontainer
+    networks:
+      - rede_bd
+
+networks:
+  rede_bd:
+    driver: bridge
+
+volumes:
+  vol_mysql:

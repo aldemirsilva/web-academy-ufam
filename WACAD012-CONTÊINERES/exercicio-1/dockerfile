@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y nginx
+ARG PORTA_ARG
+EXPOSE ${PORTA_ARG}
+CMD ["nginx", "-g", "daemon off;"]
+
+# sudo docker build -t server-1 --build-arg PORTA_ARG=8080 . --no-cache
+
+# sudo docker run -d --name server-com-arg -p 8080:80 server1
