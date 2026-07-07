@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import {
   createUser,
   deleteUser,
+  findUserByEmail,
   getUser,
   getUsers,
   updateUser,
@@ -9,6 +10,7 @@ import {
 import type { CreateUserDTO, UpdateUserDTO } from "./user.types.js";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { userErrors } from "./user.errors.js";
+import { prisma } from "../../utils/prismaClient.js";
 
 const index = async (req: Request, res: Response) => {
   try {
@@ -20,8 +22,11 @@ const index = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
+  const data = req.body as CreateUserDTO;
   try {
-    const data = req.body as CreateUserDTO;
+    if (await findUserByEmail(data.email))
+      res.status(StatusCodes.CONFLICT).json(ReasonPhrases.CONFLICT);
+
     const user = await createUser(data);
     res.status(StatusCodes.CREATED).json(user);
   } catch (error) {

@@ -13,6 +13,13 @@ export async function getUsers(): Promise<UserDTO[]> {
   );
 }
 
+export async function findUserByEmail(email: string): Promise<UserDTO | null> {
+  const tempuser = await prisma.user.findFirst({ where: { email } });
+  if (!tempuser) return null;
+  const { password, ...user } = tempuser;
+  return user;
+}
+
 export async function createUser(data: CreateUserDTO): Promise<UserDTO> {
   try {
     const salt = await genSalt(env.ROUNDS_BCRYPT);
