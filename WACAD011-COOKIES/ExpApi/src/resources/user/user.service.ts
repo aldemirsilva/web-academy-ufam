@@ -1,7 +1,7 @@
 import { genSalt, hash } from "bcryptjs";
 import { prisma } from "../../utils/prismaClient.js";
 import { Prisma } from "../../generated/prisma/client.js";
-import type { CreateUserDTO, UserDTO } from "./user.types.js";
+import type { CreateUserDTO, UpdateUserDTO, UserDTO } from "./user.types.js";
 import getEnv from "../../utils/validateEnv.js";
 
 const env = getEnv();
@@ -43,5 +43,48 @@ export async function getUser(id: string): Promise<UserDTO | null> {
       throw new Error("Invalid user ID format");
     }
     throw error;
+  }
+}
+
+export async function updateUser(
+  id: string,
+  data: UpdateUserDTO,
+): Promise<UserDTO | null> {
+  const user = await prisma.user.findUnique({ where: { id } });
+
+  if (!user) return null;
+
+  try {
+    const { password, ...userUpdated } = await prisma.user.update({
+      where: { id },
+      data,
+    });
+    return userUpdated;
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      throw new Error("User not found");
+    }
+    throw error;
+  }
+}
+
+export async function deleteUser(id: string): Promise<CreateUserDTO | null> {
+  try {
+    const user = await prisma.user.findUnique({ where: { id } });
+
+    if (!user) return null;
+
+    return await prisma.user.delete({ where: { id } });
+  } catch (e) {
+    if (
+      e instanceof Prisma.PrismaClientKnownRequestError &&
+      e.code === "P2025"
+    ) {
+      return null;
+    }
+    throw e;
   }
 }

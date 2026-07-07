@@ -44,7 +44,11 @@ const read = async (req: Request, res: Response) => {
 const update = async (req: Request, res: Response) => {
   try {
     const id = req.params.id as string;
-    const product = req.body as CreateProductDTO;
+    const product: CreateProductDTO = {
+      name: req.body.name,
+      price: req.body.price,
+      Stock: req.body.Stock,
+    };
     const updatedProduct = await updateProduct(id, product);
 
     if (!updatedProduct)

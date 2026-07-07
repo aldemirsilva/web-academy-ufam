@@ -1,7 +1,13 @@
 import type { Request, Response } from "express";
-import { createUser, getUser, getUsers } from "./user.service.js";
-import type { CreateUserDTO } from "./user.types.js";
-import { StatusCodes } from "http-status-codes";
+import {
+  createUser,
+  deleteUser,
+  getUser,
+  getUsers,
+  updateUser,
+} from "./user.service.js";
+import type { CreateUserDTO, UpdateUserDTO } from "./user.types.js";
+import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { userErrors } from "./user.errors.js";
 
 const index = async (req: Request, res: Response) => {
@@ -33,8 +39,40 @@ const read = async (req: Request, res: Response) => {
   }
 };
 
-const update = async (req: Request, res: Response) => {};
+const update = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id as string;
 
-const remove = async (req: Request, res: Response) => {};
+    const newUser: UpdateUserDTO = {
+      name: req.body.name,
+      email: req.body.email,
+      userTypeId: req.body.userTypeId,
+    };
+
+    const updatedUser = await updateUser(id, newUser);
+
+    if (!updatedUser)
+      return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
+
+    return res.status(StatusCodes.OK).json(updatedUser);
+  } catch (error) {
+    userErrors(error, res);
+  }
+};
+
+const remove = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id as string;
+    const deletedUser = await deleteUser(id);
+
+    if (!deletedUser)
+      return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
+
+    const { password, ...deletedUserNoPassword } = deletedUser;
+    return res.status(StatusCodes.ACCEPTED).json(deletedUserNoPassword);
+  } catch (error) {
+    userErrors(error, res);
+  }
+};
 
 export default { index, create, read, update, remove };
