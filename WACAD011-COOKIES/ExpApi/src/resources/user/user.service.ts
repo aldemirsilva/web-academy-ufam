@@ -55,11 +55,11 @@ export async function updateUser(
   if (!user) return null;
 
   try {
-    const { password, ...userUpdated } = await prisma.user.update({
+    const { password, ...userWithoutPassword } = await prisma.user.update({
       where: { id },
       data,
     });
-    return userUpdated;
+    return userWithoutPassword;
   } catch (error) {
     if (
       error instanceof Prisma.PrismaClientKnownRequestError &&
@@ -71,13 +71,17 @@ export async function updateUser(
   }
 }
 
-export async function deleteUser(id: string): Promise<CreateUserDTO | null> {
+export async function deleteUser(id: string): Promise<UserDTO | null> {
   try {
     const user = await prisma.user.findUnique({ where: { id } });
 
     if (!user) return null;
 
-    return await prisma.user.delete({ where: { id } });
+    const { password, ...userWithoutPassword } = await prisma.user.delete({
+      where: { id },
+    });
+
+    return userWithoutPassword;
   } catch (e) {
     if (
       e instanceof Prisma.PrismaClientKnownRequestError &&

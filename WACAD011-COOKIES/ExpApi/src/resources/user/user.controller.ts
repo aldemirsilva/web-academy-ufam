@@ -68,8 +68,7 @@ const remove = async (req: Request, res: Response) => {
     if (!deletedUser)
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
 
-    const { password, ...deletedUserNoPassword } = deletedUser;
-    return res.status(StatusCodes.ACCEPTED).json(deletedUserNoPassword);
+    return res.status(StatusCodes.ACCEPTED).json(deletedUser);
   } catch (error) {
     userErrors(error, res);
   }
