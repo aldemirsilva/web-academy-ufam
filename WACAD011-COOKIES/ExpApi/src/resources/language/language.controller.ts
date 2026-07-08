@@ -7,4 +7,4 @@ const changeLang = (req: Request, res: Response) => {
   res.cookie("lang", lang).status(StatusCodes.OK).json({ lang });
 };
 
-export default changeLang;
+export default { changeLang };
