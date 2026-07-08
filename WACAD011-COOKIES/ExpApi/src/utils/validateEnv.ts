@@ -9,6 +9,7 @@ function getEnv() {
     DATABASE_URL: url(),
     ROUNDS_BCRYPT: num({ default: 10 }),
     DEFAULT_LANG: str({ default: "pt-BR" }),
+    SESSION_SECRET: str({ default: "Hi9Cf#mK98" }),
   });
 }
 
