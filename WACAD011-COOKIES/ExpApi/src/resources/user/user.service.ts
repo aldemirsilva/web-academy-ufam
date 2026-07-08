@@ -14,10 +14,10 @@ export async function getUsers(): Promise<UserDTO[]> {
 }
 
 export async function findUserByEmail(email: string): Promise<UserDTO | null> {
-  const tempuser = await prisma.user.findFirst({ where: { email } });
-  if (!tempuser) return null;
-  const { password, ...user } = tempuser;
-  return user;
+  const user = await prisma.user.findFirst({ where: { email } });
+  if (!user) return null;
+  const { password, ...userWithoutPassword } = user;
+  return userWithoutPassword;
 }
 
 export async function createUser(data: CreateUserDTO): Promise<UserDTO> {
