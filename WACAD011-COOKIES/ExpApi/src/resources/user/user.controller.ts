@@ -10,7 +10,6 @@ import {
 import type { CreateUserDTO, UpdateUserDTO } from "./user.types.js";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { userErrors } from "./user.errors.js";
-import { prisma } from "../../utils/prismaClient.js";
 
 const index = async (req: Request, res: Response) => {
   try {
