@@ -1,4 +1,0 @@
-# sudo docker volume create volume_co
-# sudo docker network create network_co
-# sudo docker run -d --name bdcontainer -p 3307:3306 -e MY_SQL_ROOT_PASSWORD=123 -v volume_co:/var/lib/mysql --network network_co mysql:latest
-# sudo docker run -d --name bdguicontainer -e PMA_HOST=bdcontainer -e PMA_PORT=3306 -e PMA_USER=root -e PMA_PASSWORD=pass2023 --network rede_webacademy -p 8080:80 phpmyadmin

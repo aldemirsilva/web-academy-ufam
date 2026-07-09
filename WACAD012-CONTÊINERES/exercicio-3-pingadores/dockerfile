@@ -1,0 +1,22 @@
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y iputils-ping
+CMD ["sleep", "1d"]
+
+# Faz o build da imagem:
+# docker build -t pingadores .
+
+# Cria a rede:
+# docker network create -d bridge rede_pingadores
+
+# Roda os contêineres pingadores:
+# docker run -d --name pingador-1 --network rede_pingadores pingadores
+# docker run -d --name pingador-2 --network rede_pingadores pingadores
+
+# Roda iterativamente o pingador-1 e pinga o pingador-2
+# docker exec -it pingador-1 bash
+# ping pingador-2
+
+# Roda iterativamente o pingador-2 e pinga o pingador-1
+# docker exec -it pingador-2 bash
+# ping pingador-1

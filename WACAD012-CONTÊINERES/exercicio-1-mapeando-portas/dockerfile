@@ -5,6 +5,5 @@ ARG PORTA_ARG
 EXPOSE ${PORTA_ARG}
 CMD ["nginx", "-g", "daemon off;"]
 
-# sudo docker build -t server-1 --build-arg PORTA_ARG=8080 . --no-cache
-
-# sudo docker run -d --name server-com-arg -p 8080:80 server1
+# docker build -t server-1 --build-arg PORTA_ARG=7000 . --no-cache
+# docker run -d --name server-com-arg -p 7000:80 server-1

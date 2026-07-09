@@ -5,7 +5,7 @@ services:
     ports:
       - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: pass2023
+      MYSQL_ROOT_PASSWORD: senhasegura
     volumes:
       - vol_mysql:/var/lib/mysql
     networks:
@@ -20,7 +20,7 @@ services:
       PMA_HOST: bdcontainer
       PMA_PORT: 3306
       PMA_USER: root
-      PMA_PASSWORD: pass2023
+      PMA_PASSWORD: senhasegura
     depends_on:
       - bdcontainer
     networks:

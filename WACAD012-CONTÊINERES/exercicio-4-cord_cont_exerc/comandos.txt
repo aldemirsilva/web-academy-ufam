@@ -1,0 +1,5 @@
+docker build -t backend-img -f dockerfile-backend . --no-cache
+docker build -t frontend-img -f dockerfile-frontend . --no-cache
+docker network create frontend-backend
+docker run -d --name back --network frontend-backend -p 4000:4000 backend-img
+docker run -d --name front --network frontend-backend -p 3000:3000 frontend-img

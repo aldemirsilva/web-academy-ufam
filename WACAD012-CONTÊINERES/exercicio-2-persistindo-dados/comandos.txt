@@ -1,0 +1,4 @@
+docker volume create volume_co
+docker network create network_co
+docker run -d --name bdcontainer -p 3307:3306 -e MYSQL_ROOT_PASSWORD=senhasegura -v volume_co:/var/lib/mysql --network network_co mysql
+docker run -d --name bdguicontainer -e PMA_HOST=bdcontainer -e PMA_PORT=3306 -e PMA_USER=root -e PMA_PASSWORD=senhasegura --network network_co -p 8080:80 phpmyadmin

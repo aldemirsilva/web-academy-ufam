@@ -1,0 +1,39 @@
+services:
+  back:
+    build:
+      context: .
+      dockerfile: dockerfile-backend
+    container_name: backend-webacademy
+    ports:
+      - "4000:4000"
+    networks:
+      - net-web-remote
+
+  front:
+    build:
+      context: .
+      dockerfile: dockerfile-frontend
+    container_name: frontend-webacademy
+    ports:
+      - "3000:3000"
+    networks:
+      - net-web-remote
+    depends_on:
+      - back
+
+networks:
+  net-web-remote:
+    driver: bridge
+
+# Comandos para execução:
+
+# Subir os contêineres:
+# $ docker compose up -d
+
+# Acessar a página do frontend:
+# Acessar o endereço http://localhost:3000/ no navegador.
+
+# Enviar uma mensagem no formulário e pressionar o botão "enviar".
+
+# Verficar os logs do backend em tempo real:
+# $ docker logs backend-webacademy -f
