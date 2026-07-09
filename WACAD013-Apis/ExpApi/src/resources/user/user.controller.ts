@@ -2,7 +2,6 @@ import type { Request, Response } from "express";
 import {
   createUser,
   deleteUser,
-  findUserByEmail,
   getUser,
   getUsers,
   updateUser,
@@ -22,14 +21,13 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
   const data = req.body as CreateUserDTO;
-  try {
-    if (await findUserByEmail(data.email))
-      res.status(StatusCodes.CONFLICT).json(ReasonPhrases.CONFLICT);
 
+  try {
     const user = await createUser(data);
-    res.status(StatusCodes.CREATED).json(user);
+
+    return res.status(StatusCodes.CREATED).json(user);
   } catch (error) {
-    userErrors(error, res);
+    return userErrors(error, res);
   }
 };
 
@@ -37,21 +35,20 @@ const read = async (req: Request, res: Response) => {
   try {
     const id = req.params.id as string;
     const user = await getUser(id);
-    res.status(StatusCodes.OK).json(user);
+
+    if (!user)
+      return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
+
+    return res.status(StatusCodes.OK).json(user);
   } catch (error) {
-    userErrors(error, res);
+    return userErrors(error, res);
   }
 };
 
 const update = async (req: Request, res: Response) => {
   try {
     const id = req.params.id as string;
-
-    const newUser: UpdateUserDTO = {
-      name: req.body.name,
-      email: req.body.email,
-      userTypeId: req.body.userTypeId,
-    };
+    const newUser = req.body as UpdateUserDTO;
 
     const updatedUser = await updateUser(id, newUser);
 

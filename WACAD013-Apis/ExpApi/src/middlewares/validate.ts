@@ -7,8 +7,13 @@ function validate(schema: Schema) {
     const { error } = schema.validate(req.body, {
       abortEarly: false,
     });
-    if (error) res.status(StatusCodes.OK).json(error);
-    else next();
+    if (error) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: "Validation Error",
+        details: error.details.map(({ message, path }) => ({ message, path })),
+      });
+    }
+    return next();
   };
 }
 

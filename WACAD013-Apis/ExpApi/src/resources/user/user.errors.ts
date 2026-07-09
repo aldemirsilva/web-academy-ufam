@@ -14,6 +14,20 @@ export function userErrors(err: unknown, res: Response) {
       message: err.message,
     });
   } else if (err instanceof Error) {
+    if (err.message === "Email already in use") {
+      return res.status(StatusCodes.CONFLICT).json({
+        error: "Conflict",
+        message: err.message,
+      });
+    }
+
+    if (err.message === "User type not found") {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: "Bad Request",
+        message: err.message,
+      });
+    }
+
     return res.status(StatusCodes.BAD_REQUEST).json({
       error: "Bad Request",
       message: err.message,
