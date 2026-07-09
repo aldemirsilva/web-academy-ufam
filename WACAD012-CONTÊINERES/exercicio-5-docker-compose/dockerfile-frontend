@@ -1,0 +1,7 @@
+FROM node:18.16-slim
+WORKDIR /home/app
+COPY frontend.js .
+RUN npm init -y
+RUN npm install -y querystring
+EXPOSE 3000
+CMD ["node", "frontend.js"]

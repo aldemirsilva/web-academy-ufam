@@ -1,4 +1,26 @@
-docker volume create volume_co
+# Cria a rede dos contêineres:
 docker network create network_co
-docker run -d --name bdcontainer -p 3307:3306 -e MYSQL_ROOT_PASSWORD=senhasegura -v volume_co:/var/lib/mysql --network network_co mysql
+
+# Cria e roda o contêiner MySQL sem volume vinculado:
+docker run -d --name bdcontainer -p 3307:3306 -e MYSQL_ROOT_PASSWORD=senhasegura --network network_co mysql
+
+# Cria e roda o contêiner do phpmyadmin:
 docker run -d --name bdguicontainer -e PMA_HOST=bdcontainer -e PMA_PORT=3306 -e PMA_USER=root -e PMA_PASSWORD=senhasegura --network network_co -p 8080:80 phpmyadmin
+
+# Inspeciona o contêiner MySQL:
+docker inspect bdcontainer | grep -A 10 Mount
+
+# Para todos os contêineres:
+docker stop $(docker ps -q)
+
+# Cria o volume para uso com o contêiner MySQL
+docker volume create volume_co
+
+# Cria e roda o contêiner MySQL com volume vinculado:
+docker run -d --name bdcontainer-vol -p 3307:3306 -e MYSQL_ROOT_PASSWORD=senhasegura -v volume_co:/var/lib/mysql --network network_co mysql
+
+# Roda o contêiner do phpmyadmin:
+docker start bdguicontainer
+
+# Inspeciona o contêiner MySQL:
+docker inspect bdcontainer | grep -A 10 Mount
