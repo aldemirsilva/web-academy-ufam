@@ -26,6 +26,12 @@ export async function getUsers(): Promise<UserDTO[]> {
   return users.map(toUserDTO);
 }
 
+export async function findUserByEmail(email: string): Promise<UserDTO | null> {
+  const user = await prisma.user.findUnique({ where: { email } });
+  if (!user) return null;
+  return toUserDTO(user);
+}
+
 export async function createUser(data: CreateUserDTO): Promise<UserDTO> {
   try {
     const existingUser = await prisma.user.findUnique({
@@ -77,9 +83,9 @@ export async function updateUser(
 
   if (!user) return null;
 
-  try {
-    await ensureUserTypeExists(data.userTypeId);
+  await ensureUserTypeExists(data.userTypeId);
 
+  try {
     const updatedUser = await prisma.user.update({
       where: { id },
       data,
@@ -91,30 +97,30 @@ export async function updateUser(
       error instanceof Prisma.PrismaClientKnownRequestError &&
       error.code === "P2025"
     ) {
-      throw new Error("User not found");
+      return null;
     }
     throw error;
   }
 }
 
 export async function deleteUser(id: string): Promise<UserDTO | null> {
+  const user = await prisma.user.findUnique({ where: { id } });
+
+  if (!user) return null;
+
   try {
-    const user = await prisma.user.findUnique({ where: { id } });
-
-    if (!user) return null;
-
     const deletedUser = await prisma.user.delete({
       where: { id },
     });
 
     return toUserDTO(deletedUser);
-  } catch (e) {
+  } catch (error) {
     if (
-      e instanceof Prisma.PrismaClientKnownRequestError &&
-      e.code === "P2025"
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
     ) {
       return null;
     }
-    throw e;
+    throw error;
   }
 }
