@@ -16,13 +16,13 @@ datasource db {
 // Representa os clientes cadastrados no sistema.
 model cliente {
   // CPF do cliente, usado como chave primária.
-  cpf             String   @id @db.VarChar(14)
+  cpf             String   @id @db.VarChar(50)
   // Nome completo do cliente.
-  nome_completo   String   @db.VarChar(45)
+  nome_completo   String   @db.VarChar(100)
   // Número de celular do cliente.
-  celular         String   @db.VarChar(20)
+  celular         String   @db.VarChar(50)
   // E-mail do cliente.
-  e_mail          String   @db.VarChar(50)
+  e_mail          String   @unique @db.VarChar(50)
   // Data de nascimento do cliente.
   data_nascimento DateTime @db.Date
 
