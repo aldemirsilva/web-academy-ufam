@@ -67,34 +67,40 @@ const read = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
   const cpf = req.params.cpf as string
-  const cliente = req.body as CreateClienteDTO
-
-  const dataNascimento = new Date(cliente.data_nascimento)
-
-  if (Number.isNaN(dataNascimento.getTime())) {
-    return res.status(StatusCodes.BAD_REQUEST).json({
-      error: "Data de nascimento inválida",
+  if (req.method === "GET") {
+    const client = await getClient(cpf)
+    res.render("clients/update", {
+      client,
     })
-  }
+  } else if (req.method === "POST") {
+    const client = req.body as CreateClienteDTO
 
-  try {
-    const updatedCliente = await updateClient(cpf, {
-      ...cliente,
-      data_nascimento: dataNascimento,
-    })
+    const dataNascimento = new Date(client.data_nascimento)
 
-    if (!updatedCliente) {
-      return res.status(StatusCodes.NOT_FOUND).json({
-        error: "Cliente não encontrado.",
+    if (Number.isNaN(dataNascimento.getTime())) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: "Data de nascimento inválida",
       })
     }
 
-    return res.status(StatusCodes.OK).json(updatedCliente)
-  } catch (error) {
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
+    try {
+      const updatedCliente = await updateClient(cpf, {
+        ...client,
+        data_nascimento: dataNascimento,
+      })
+
+      if (!updatedCliente) {
+        return res.status(StatusCodes.NOT_FOUND).json({
+          error: "Cliente não encontrado.",
+        })
+      }
+
+      return res.status(StatusCodes.OK).redirect("/clients")
+    } catch (error) {
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
+    }
   }
 }
-
 const remove = async (req: Request, res: Response) => {
   const cpf = req.params.cpf as string
 
@@ -107,10 +113,16 @@ const remove = async (req: Request, res: Response) => {
       })
     }
 
-    return res.status(StatusCodes.OK).json({})
+    return res.status(StatusCodes.OK).redirect("/clients")
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
   }
 }
 
-export default { index, create, read, update, remove }
+const not_found = (req: Request, res: Response) => {
+  return res
+    .status(StatusCodes.NOT_FOUND)
+    .send("<h1>Erro 404: Página não encontrada.</h1>")
+}
+
+export default { index, create, read, update, remove, not_found }
