@@ -11,8 +11,10 @@ import {
 
 const index = async (req: Request, res: Response) => {
   try {
-    const clientes = await getClients()
-    return res.status(StatusCodes.OK).json(clientes)
+    const clients = await getClients()
+    return res.status(StatusCodes.OK).render("clients/index", {
+      clients,
+    })
   } catch (err) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err)
   }
