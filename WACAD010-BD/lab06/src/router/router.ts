@@ -24,10 +24,11 @@ router.get("/products/remove/:id", ProductController.remove)
 
 // Clients controller routes
 router.get("/clients", ClientController.index)
-router.post("/clients", ClientController.create)
-router.get("/clients/:id", ClientController.read)
-router.put("/clients/:id", ClientController.update)
-router.delete("/clients/:id", ClientController.remove)
+router.get("/clients/create", ClientController.create)
+router.post("/clients/create", ClientController.create)
+router.get("/clients/read/:cpf", ClientController.read)
+router.put("/clients/update/:cpf", ClientController.update)
+router.delete("/clients/delete/:cpf", ClientController.remove)
 
 router.use(MainController.not_found)
 

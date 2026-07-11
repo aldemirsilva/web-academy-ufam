@@ -21,46 +21,52 @@ const index = async (req: Request, res: Response) => {
 }
 
 const create = async (req: Request, res: Response) => {
-  const cliente = req.body as CreateClienteDTO
+  if (req.method === "GET") {
+    res.render("clients/create")
+  } else if (req.method === "POST") {
+    const client = req.body as CreateClienteDTO
 
-  const dataNascimento = new Date(cliente.data_nascimento)
+    const dataNascimento = new Date(client.data_nascimento)
 
-  if (Number.isNaN(dataNascimento.getTime())) {
-    return res.status(StatusCodes.BAD_REQUEST).json({
-      error: "Data de nascimento inválida",
-    })
-  }
-
-  try {
-    const newCliente = await createClient({
-      ...cliente,
-      data_nascimento: dataNascimento,
-    })
-
-    if (!newCliente) {
-      return res.status(StatusCodes.CONFLICT).json({
-        error: "Cliente já cadastrado.",
+    if (Number.isNaN(dataNascimento.getTime())) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: "Data de nascimento inválida",
       })
     }
 
-    return res.status(StatusCodes.CREATED).json(newCliente)
-  } catch (err) {
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err)
+    try {
+      const newCliente = await createClient({
+        ...client,
+        data_nascimento: dataNascimento,
+      })
+
+      if (!newCliente) {
+        return res.status(StatusCodes.CONFLICT).json({
+          error: "Cliente já cadastrado.",
+        })
+      }
+
+      return res.status(StatusCodes.CREATED).redirect("/clients")
+    } catch (err) {
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err)
+    }
   }
 }
 
 const read = async (req: Request, res: Response) => {
-  const id = req.params.id as string
+  const cpf = req.params.cpf as string
   try {
-    const cliente = await getClient(id)
-    return res.status(StatusCodes.OK).json(cliente)
+    const client = await getClient(cpf)
+    return res.status(StatusCodes.OK).render("clients/read", {
+      client,
+    })
   } catch (err) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err)
   }
 }
 
 const update = async (req: Request, res: Response) => {
-  const id = req.params.id as string
+  const cpf = req.params.cpf as string
   const cliente = req.body as CreateClienteDTO
 
   const dataNascimento = new Date(cliente.data_nascimento)
@@ -72,7 +78,7 @@ const update = async (req: Request, res: Response) => {
   }
 
   try {
-    const updatedCliente = await updateClient(id, {
+    const updatedCliente = await updateClient(cpf, {
       ...cliente,
       data_nascimento: dataNascimento,
     })
@@ -90,10 +96,10 @@ const update = async (req: Request, res: Response) => {
 }
 
 const remove = async (req: Request, res: Response) => {
-  const id = req.params.id as string
+  const cpf = req.params.cpf as string
 
   try {
-    const deletedCliente = await deleteClient(id)
+    const deletedCliente = await deleteClient(cpf)
 
     if (!deletedCliente) {
       return res.status(StatusCodes.NOT_FOUND).json({
