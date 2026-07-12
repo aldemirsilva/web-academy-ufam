@@ -1,4 +1,4 @@
-import { type cliente } from "../generated/prisma/browser.js"
+import { type cliente } from "../generated/prisma/client.js"
 import { prisma } from "../utils/prismaClient.js"
 import { type CreateClienteDTO } from "../types/client.js"
 
