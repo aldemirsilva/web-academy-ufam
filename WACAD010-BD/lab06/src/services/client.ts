@@ -9,8 +9,8 @@ export async function getClients(): Promise<cliente[]> {
 export async function createClient(
   data: CreateClienteDTO,
 ): Promise<cliente | null> {
-  const cliente = await prisma.cliente.findFirst({
-    where: { nome_completo: data.nome_completo },
+  const cliente = await prisma.cliente.findUnique({
+    where: { cpf: data.cpf },
   })
   if (cliente) return null
   return await prisma.cliente.create({ data })
@@ -22,7 +22,7 @@ export async function getClient(cpf: string): Promise<cliente | null> {
 
 export async function updateClient(
   cpf: string,
-  data: Omit<CreateClienteDTO, "cpf">,
+  data: CreateClienteDTO,
 ): Promise<cliente | null> {
   const clienteExistente = await prisma.cliente.findUnique({
     where: { cpf },
