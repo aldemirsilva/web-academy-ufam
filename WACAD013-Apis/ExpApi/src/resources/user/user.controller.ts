@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import {
   createUser,
   deleteUser,
+  findUserByEmail,
   getUser,
   getUsers,
   updateUser,
@@ -23,6 +24,9 @@ const create = async (req: Request, res: Response) => {
   const data = req.body as CreateUserDTO;
 
   try {
+    if (await findUserByEmail(data.email))
+      return res.status(StatusCodes.CONFLICT).json(ReasonPhrases.CONFLICT);
+
     const user = await createUser(data);
 
     return res.status(StatusCodes.CREATED).json(user);
@@ -69,7 +73,7 @@ const remove = async (req: Request, res: Response) => {
     if (!deletedUser)
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
 
-    return res.status(StatusCodes.ACCEPTED).json(deletedUser);
+    return res.status(StatusCodes.OK).json(deletedUser);
   } catch (error) {
     userErrors(error, res);
   }

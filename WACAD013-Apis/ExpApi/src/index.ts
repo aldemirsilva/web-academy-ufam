@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import setCookieLang from "./middlewares/setCookieLang.js";
 import session from "express-session";
 import { v4 as uuidv4 } from "uuid";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger.js";
 
 const app = express();
 const env = getEnv();
@@ -27,6 +29,8 @@ app.use(
     saveUninitialized: true,
   }),
 );
+
+app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(router);
 

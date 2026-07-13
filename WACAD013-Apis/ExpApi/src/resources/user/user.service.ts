@@ -6,7 +6,7 @@ import getEnv from "../../utils/validateEnv.js";
 
 const env = getEnv();
 
-function toUserDTO(user: User): UserDTO {
+export function toUserDTO(user: User): UserDTO {
   const { password, ...userWithoutPassword } = user;
   return userWithoutPassword;
 }
@@ -34,9 +34,7 @@ export async function findUserByEmail(email: string): Promise<UserDTO | null> {
 
 export async function createUser(data: CreateUserDTO): Promise<UserDTO> {
   try {
-    const existingUser = await prisma.user.findUnique({
-      where: { email: data.email },
-    });
+    const existingUser = await findUserByEmail(data.email);
 
     if (existingUser) {
       throw new Error("Email already in use");

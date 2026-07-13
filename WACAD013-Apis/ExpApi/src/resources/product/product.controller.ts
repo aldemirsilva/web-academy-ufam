@@ -47,7 +47,7 @@ const update = async (req: Request, res: Response) => {
     const product: CreateProductDTO = {
       name: req.body.name,
       price: req.body.price,
-      Stock: req.body.Stock,
+      stock: req.body.stock,
     };
     const updatedProduct = await updateProduct(id, product);
 
@@ -68,7 +68,7 @@ const remove = async (req: Request, res: Response) => {
     if (!deletedProduct)
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
 
-    return res.status(StatusCodes.ACCEPTED).json(deletedProduct);
+    return res.status(StatusCodes.OK).json(deletedProduct);
   } catch (err) {
     productErrors(err, res);
   }
