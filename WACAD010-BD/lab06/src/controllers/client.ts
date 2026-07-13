@@ -101,7 +101,6 @@ const update = async (req: Request, res: Response) => {
     }
   }
 }
-
 const remove = async (req: Request, res: Response) => {
   const cpf = req.params.cpf as string
 
