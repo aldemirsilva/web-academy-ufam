@@ -10,6 +10,7 @@ COPY ./src ./src
 COPY ./prisma ./prisma
 
 RUN npm ci
+RUN npx prisma generate
 RUN npm run build
 
 # Estágio de execução da aplicação
@@ -26,8 +27,8 @@ COPY .env .
 COPY ./prisma ./prisma
 COPY --from=build /appbuild/dist ./dist
 
-RUN npm ci --omit=dev
+RUN npm ci
 
 EXPOSE 4444
 
-CMD npm start
+CMD ["sh", "-c", "npx prisma db push && npm start"]

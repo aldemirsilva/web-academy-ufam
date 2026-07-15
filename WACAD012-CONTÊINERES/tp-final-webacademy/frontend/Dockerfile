@@ -3,9 +3,12 @@ FROM node:18.16 AS build
 
 WORKDIR /appbuild
 
+COPY package*.json ./
+
+RUN npm ci
+
 COPY . .
 
-RUN npm install --save-dev
 RUN npm run build
 
 # Estágio de execução da aplicação
