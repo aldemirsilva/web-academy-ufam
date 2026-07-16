@@ -7,7 +7,6 @@ export default function Products() {
     <main>
       <div className="container p-5">
         <CartSummary />
-        <h5 className="mb-3">Produtos disponíveis:</h5>
         <ProductCard />
       </div>
     </main>
