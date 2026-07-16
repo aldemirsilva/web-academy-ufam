@@ -15,3 +15,5 @@ export function CartItem() {
     </tr>
   );
 }
+
+export default getProductTotal;

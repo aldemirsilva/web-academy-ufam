@@ -26,7 +26,7 @@ export function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cart">
+              <a className="nav-link" href="/components/Cart">
                 Carrinho
               </a>
             </li>
