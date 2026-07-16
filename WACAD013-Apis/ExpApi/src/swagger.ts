@@ -73,6 +73,32 @@ const swaggerSpec = swaggerJsdoc({
             userId: { type: "string", format: "uuid" },
           },
         },
+        PurchaseItem: {
+          type: "object",
+          properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
+            quantity: { type: "integer" },
+            createdAt: { type: "string", format: "date-time" },
+            updatedAt: { type: "string", format: "date-time" },
+          },
+        },
+        CreatePurchaseItem: {
+          type: "object",
+          required: ["purchaseId", "productId", "quantity"],
+          properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
+            quantity: { type: "integer", minimum: 1 },
+          },
+        },
+        UpdatePurchaseItem: {
+          type: "object",
+          required: ["quantity"],
+          properties: {
+            quantity: { type: "integer", minimum: 1 },
+          },
+        },
         Signup: {
           type: "object",
           required: ["name", "email", "password"],
