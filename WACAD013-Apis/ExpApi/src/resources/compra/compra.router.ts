@@ -1,5 +1,11 @@
 import { Router } from "express";
 import comprasController from "./compra.controller.js";
+import validate from "../../middlewares/validate.js";
+import {
+	addToCartSchema,
+	removeFromCartSchema,
+	updateQuantitySchema,
+} from "./compra.schema.js";
 
 const router = Router();
 
@@ -55,7 +61,11 @@ router.get("/", comprasController.index);
  *       401:
  *         description: Não autenticado
  */
-router.post("/add-to-cart", comprasController.addToCart);
+router.post(
+	"/add-to-cart",
+	validate(addToCartSchema),
+	comprasController.addToCart,
+);
 
 /**
  * @openapi
@@ -90,7 +100,11 @@ router.post("/add-to-cart", comprasController.addToCart);
  *       404:
  *         description: Item não encontrado no carrinho
  */
-router.post("/remove-from-cart", comprasController.removeFromCart);
+router.post(
+	"/remove-from-cart",
+	validate(removeFromCartSchema),
+	comprasController.removeFromCart,
+);
 
 /**
  * @openapi
@@ -128,7 +142,11 @@ router.post("/remove-from-cart", comprasController.removeFromCart);
  *       404:
  *         description: Item não encontrado no carrinho
  */
-router.post("/update-quantity", comprasController.updateQuantity);
+router.post(
+	"/update-quantity",
+	validate(updateQuantitySchema),
+	comprasController.updateQuantity,
+);
 
 /**
  * @openapi
