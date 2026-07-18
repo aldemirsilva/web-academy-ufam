@@ -109,6 +109,9 @@ const emptyCart = (req: Request, res: Response) => {
       .status(StatusCodes.UNAUTHORIZED)
       .send(ReasonPhrases.UNAUTHORIZED);
 
+  if (req.session.cart?.length === 0)
+    return res.status(StatusCodes.BAD_REQUEST).send(ReasonPhrases.BAD_REQUEST);
+
   req.session.cart = [];
 
   return res.status(StatusCodes.OK).json(req.session.cart);
@@ -121,7 +124,7 @@ const placeOrder = async (req: Request, res: Response) => {
       .send(ReasonPhrases.UNAUTHORIZED);
 
   if (req.session.cart?.length === 0)
-    res.status(StatusCodes.BAD_REQUEST).send(ReasonPhrases.BAD_REQUEST);
+    return res.status(StatusCodes.BAD_REQUEST).send(ReasonPhrases.BAD_REQUEST);
 
   try {
     const purchase: CreatePurchaseDTO = {
@@ -138,7 +141,9 @@ const placeOrder = async (req: Request, res: Response) => {
     req.session.cart = [];
     return res.status(StatusCodes.CREATED).json(purchaseItems);
   } catch (error) {
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error);
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .send(ReasonPhrases.INTERNAL_SERVER_ERROR);
   }
 };
 
