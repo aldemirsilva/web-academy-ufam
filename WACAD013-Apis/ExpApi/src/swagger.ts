@@ -99,6 +99,47 @@ const swaggerSpec = swaggerJsdoc({
             quantity: { type: "integer", minimum: 1 },
           },
         },
+        CartItem: {
+          type: "object",
+          properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
+            quantity: { type: "integer", minimum: 1 },
+          },
+        },
+        AddToCart: {
+          type: "object",
+          required: ["productId", "quantity"],
+          properties: {
+            productId: { type: "string", format: "uuid" },
+            quantity: { type: "integer", minimum: 1 },
+          },
+        },
+        RemoveFromCart: {
+          type: "object",
+          required: ["productId"],
+          properties: {
+            productId: { type: "string", format: "uuid" },
+          },
+        },
+        UpdateQuantity: {
+          type: "object",
+          required: ["productId", "quantity"],
+          properties: {
+            productId: { type: "string", format: "uuid" },
+            quantity: { type: "integer", minimum: 1 },
+          },
+        },
+        PlaceOrderResponse: {
+          type: "object",
+          properties: {
+            purchase: { $ref: "#/components/schemas/Purchase" },
+            purchaseItems: {
+              type: "array",
+              items: { $ref: "#/components/schemas/PurchaseItem" },
+            },
+          },
+        },
         Signup: {
           type: "object",
           required: ["name", "email", "password"],
