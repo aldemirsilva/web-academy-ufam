@@ -2,7 +2,7 @@ import type { Response } from "express";
 import { Prisma } from "../../generated/prisma/client.js";
 import { StatusCodes } from "http-status-codes";
 
-export function purchaseErrors(err: any, res: Response) {
+export function purchaseErrors(err: unknown, res: Response) {
   if (err instanceof Prisma.PrismaClientValidationError) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       error: "Validation Error",

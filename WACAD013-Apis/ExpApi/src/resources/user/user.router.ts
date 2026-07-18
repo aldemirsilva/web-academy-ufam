@@ -90,7 +90,7 @@ router.get("/:id", userController.read);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreateUser'
+ *             $ref: '#/components/schemas/UpdateUser'
  *     responses:
  *       200:
  *         description: Usuário atualizado

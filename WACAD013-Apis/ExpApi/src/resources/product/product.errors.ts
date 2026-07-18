@@ -1,17 +1,14 @@
 import type { Response } from "express";
-import {
-  PrismaClientUnknownRequestError,
-  PrismaClientValidationError,
-} from "../../generated/prisma/internal/prismaNamespace.js";
+import { Prisma } from "../../generated/prisma/client.js";
 import { StatusCodes } from "http-status-codes";
 
-export function productErrors(err: any, res: Response) {
-  if (err instanceof PrismaClientValidationError) {
+export function productErrors(err: unknown, res: Response) {
+  if (err instanceof Prisma.PrismaClientValidationError) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       error: "Validation Error",
-      message: "The data provided is invalid. ",
+      message: "The data provided is invalid.",
     });
-  } else if (err instanceof PrismaClientUnknownRequestError) {
+  } else if (err instanceof Prisma.PrismaClientKnownRequestError) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       error: "Database Error",
       message: err.message,

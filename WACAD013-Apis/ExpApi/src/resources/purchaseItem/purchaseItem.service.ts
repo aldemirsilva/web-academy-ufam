@@ -23,10 +23,13 @@ export async function createManyPurchaseItems(
   );
 }
 
-export async function getPurchaseItem(
-  purchaseId: string,
-  productId: string,
-): Promise<PurchaseItem | null> {
+export async function getPurchaseItem({
+  purchaseId,
+  productId,
+}: {
+  purchaseId: string;
+  productId: string;
+}): Promise<PurchaseItem | null> {
   return await prisma.purchaseItem.findUnique({
     where: {
       purchaseId_productId: {
@@ -38,10 +41,10 @@ export async function getPurchaseItem(
 }
 
 export async function updatePurchaseItem(
-  purchaseId: string,
-  productId: string,
   data: UpdatePurchaseItemDTO,
 ): Promise<PurchaseItem | null> {
+  const { purchaseId, productId, ...rest } = data;
+
   const purchaseItem = await prisma.purchaseItem.findUnique({
     where: {
       purchaseId_productId: {
@@ -61,7 +64,7 @@ export async function updatePurchaseItem(
           productId,
         },
       },
-      data,
+      data: rest,
     });
   } catch (error) {
     if (
@@ -75,10 +78,13 @@ export async function updatePurchaseItem(
   }
 }
 
-export async function deletePurchaseItem(
-  purchaseId: string,
-  productId: string,
-): Promise<PurchaseItem | null> {
+export async function deletePurchaseItem({
+  purchaseId,
+  productId,
+}: {
+  purchaseId: string;
+  productId: string;
+}): Promise<PurchaseItem | null> {
   const purchaseItem = await prisma.purchaseItem.findUnique({
     where: {
       purchaseId_productId: {

@@ -9,6 +9,8 @@ import {
 } from "./purchaseItem.service.js";
 import type {
   CreatePurchaseItemDTO,
+  DeletePurchaseItemDTO,
+  ReadPurchaseItemDTO,
   UpdatePurchaseItemDTO,
 } from "./purchaseItem.types.js";
 import { purchaseItemErrors } from "./purchaseItem.errors.js";
@@ -34,9 +36,8 @@ const create = async (req: Request, res: Response) => {
 
 const read = async (req: Request, res: Response) => {
   try {
-    const purchaseId = req.params.purchaseId as string;
-    const productId = req.params.productId as string;
-    const purchaseItem = await getPurchaseItem(purchaseId, productId);
+    const data = req.body as ReadPurchaseItemDTO;
+    const purchaseItem = await getPurchaseItem(data);
 
     if (!purchaseItem) {
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
@@ -50,16 +51,9 @@ const read = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
   try {
-    const purchaseId = req.params.purchaseId as string;
-    const productId = req.params.productId as string;
-    const data: UpdatePurchaseItemDTO = {
-      quantity: req.body.quantity,
-    };
-    const updatedPurchaseItem = await updatePurchaseItem(
-      purchaseId,
-      productId,
-      data,
-    );
+    const data = req.body as UpdatePurchaseItemDTO;
+
+    const updatedPurchaseItem = await updatePurchaseItem(data);
 
     if (!updatedPurchaseItem) {
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);
@@ -73,9 +67,8 @@ const update = async (req: Request, res: Response) => {
 
 const remove = async (req: Request, res: Response) => {
   try {
-    const purchaseId = req.params.purchaseId as string;
-    const productId = req.params.productId as string;
-    const deletedPurchaseItem = await deletePurchaseItem(purchaseId, productId);
+    const data = req.body as DeletePurchaseItemDTO;
+    const deletedPurchaseItem = await deletePurchaseItem(data);
 
     if (!deletedPurchaseItem) {
       return res.status(StatusCodes.NOT_FOUND).json(ReasonPhrases.NOT_FOUND);

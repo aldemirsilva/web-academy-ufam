@@ -2,9 +2,9 @@ import { Router } from "express";
 import comprasController from "./compra.controller.js";
 import validate from "../../middlewares/validate.js";
 import {
-	addToCartSchema,
-	removeFromCartSchema,
-	updateQuantitySchema,
+  addToCartSchema,
+  removeFromCartSchema,
+  updateQuantitySchema,
 } from "./compra.schema.js";
 
 const router = Router();
@@ -62,9 +62,9 @@ router.get("/", comprasController.index);
  *         description: Não autenticado
  */
 router.post(
-	"/add-to-cart",
-	validate(addToCartSchema),
-	comprasController.addToCart,
+  "/add-to-cart",
+  validate(addToCartSchema),
+  comprasController.addToCart,
 );
 
 /**
@@ -101,9 +101,9 @@ router.post(
  *         description: Item não encontrado no carrinho
  */
 router.post(
-	"/remove-from-cart",
-	validate(removeFromCartSchema),
-	comprasController.removeFromCart,
+  "/remove-from-cart",
+  validate(removeFromCartSchema),
+  comprasController.removeFromCart,
 );
 
 /**
@@ -143,9 +143,9 @@ router.post(
  *         description: Item não encontrado no carrinho
  */
 router.post(
-	"/update-quantity",
-	validate(updateQuantitySchema),
-	comprasController.updateQuantity,
+  "/update-quantity",
+  validate(updateQuantitySchema),
+  comprasController.updateQuantity,
 );
 
 /**
@@ -177,6 +177,10 @@ router.delete("/empty-cart", comprasController.emptyCart);
  *     responses:
  *       201:
  *         description: Compra criada com os itens persistidos
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PlaceOrderResponse'
  *       400:
  *         description: Carrinho vazio
  *       401:

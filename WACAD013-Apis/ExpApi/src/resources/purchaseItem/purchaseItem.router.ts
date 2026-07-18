@@ -4,6 +4,8 @@ import validate from "../../middlewares/validate.js";
 import isAdmin from "../../middlewares/isAdmin.js";
 import {
   createPurchaseItemSchema,
+  deletePurchaseItemSchema,
+  readPurchaseItemSchema,
   updatePurchaseItemSchema,
 } from "./purchaseItem.schema.js";
 
@@ -58,23 +60,24 @@ router.post(
 
 /**
  * @openapi
- * /purchase-items/{purchaseId}/{productId}:
- *   get:
+ * /purchase-items/read:
+ *   post:
  *     summary: Busca um item de compra pelo purchaseId e productId
  *     tags: [PurchaseItems]
- *     parameters:
- *       - name: purchaseId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
- *       - name: productId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [purchaseId, productId]
+ *             properties:
+ *               purchaseId:
+ *                 type: string
+ *                 format: uuid
+ *               productId:
+ *                 type: string
+ *                 format: uuid
  *     responses:
  *       200:
  *         description: Item de compra encontrado
@@ -85,27 +88,14 @@ router.post(
  *       404:
  *         description: Item de compra não encontrado
  */
-router.get("/:purchaseId/:productId", purchaseItemController.read);
+router.post("/read", validate(readPurchaseItemSchema), purchaseItemController.read);
 
 /**
  * @openapi
- * /purchase-items/{purchaseId}/{productId}:
+ * /purchase-items:
  *   put:
  *     summary: Atualiza um item de compra
  *     tags: [PurchaseItems]
- *     parameters:
- *       - name: purchaseId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
- *       - name: productId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
  *     requestBody:
  *       required: true
  *       content:
@@ -119,7 +109,7 @@ router.get("/:purchaseId/:productId", purchaseItemController.read);
  *         description: Usuário não é administrador
  */
 router.put(
-  "/:purchaseId/:productId",
+  "/",
   isAdmin,
   validate(updatePurchaseItemSchema),
   purchaseItemController.update,
@@ -127,23 +117,16 @@ router.put(
 
 /**
  * @openapi
- * /purchase-items/{purchaseId}/{productId}:
+ * /purchase-items:
  *   delete:
  *     summary: Remove um item de compra
  *     tags: [PurchaseItems]
- *     parameters:
- *       - name: purchaseId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
- *       - name: productId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *           format: uuid
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/DeletePurchaseItem'
  *     responses:
  *       200:
  *         description: Item de compra removido
@@ -151,8 +134,9 @@ router.put(
  *         description: Usuário não é administrador
  */
 router.delete(
-  "/:purchaseId/:productId",
+  "/",
   isAdmin,
+  validate(deletePurchaseItemSchema),
   purchaseItemController.remove,
 );
 

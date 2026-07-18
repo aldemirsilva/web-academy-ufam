@@ -36,6 +36,15 @@ const swaggerSpec = swaggerJsdoc({
             stock: { type: "integer", minimum: 0 },
           },
         },
+        UpdateProduct: {
+          type: "object",
+          required: ["name", "price", "stock"],
+          properties: {
+            name: { type: "string", minLength: 3, maxLength: 50 },
+            price: { type: "number", minimum: 0 },
+            stock: { type: "integer", minimum: 0 },
+          },
+        },
         User: {
           type: "object",
           properties: {
@@ -57,6 +66,15 @@ const swaggerSpec = swaggerJsdoc({
             userTypeId: { type: "string", format: "uuid" },
           },
         },
+        UpdateUser: {
+          type: "object",
+          required: ["name", "email", "userTypeId"],
+          properties: {
+            name: { type: "string" },
+            email: { type: "string", format: "email" },
+            userTypeId: { type: "string", format: "uuid" },
+          },
+        },
         Purchase: {
           type: "object",
           properties: {
@@ -67,6 +85,13 @@ const swaggerSpec = swaggerJsdoc({
           },
         },
         CreatePurchase: {
+          type: "object",
+          required: ["userId"],
+          properties: {
+            userId: { type: "string", format: "uuid" },
+          },
+        },
+        UpdatePurchase: {
           type: "object",
           required: ["userId"],
           properties: {
@@ -94,9 +119,27 @@ const swaggerSpec = swaggerJsdoc({
         },
         UpdatePurchaseItem: {
           type: "object",
-          required: ["quantity"],
+          required: ["purchaseId", "productId", "quantity"],
           properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
             quantity: { type: "integer", minimum: 1 },
+          },
+        },
+        DeletePurchaseItem: {
+          type: "object",
+          required: ["purchaseId", "productId"],
+          properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
+          },
+        },
+        ReadPurchaseItem: {
+          type: "object",
+          required: ["purchaseId", "productId"],
+          properties: {
+            purchaseId: { type: "string", format: "uuid" },
+            productId: { type: "string", format: "uuid" },
           },
         },
         CartItem: {

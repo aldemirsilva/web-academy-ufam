@@ -99,7 +99,7 @@ router.get("/:id", purchaseController.read);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreatePurchase'
+ *             $ref: '#/components/schemas/UpdatePurchase'
  *     responses:
  *       200:
  *         description: Compra atualizada

@@ -91,7 +91,7 @@ router.get("/:id", productController.read);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreateProduct'
+ *             $ref: '#/components/schemas/UpdateProduct'
  *     responses:
  *       200:
  *         description: Produto atualizado
