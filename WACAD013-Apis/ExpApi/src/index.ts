@@ -30,6 +30,11 @@ app.use(
   }),
 );
 
+app.use((req, _res, next) => {
+  req.session.cart ??= [];
+  next();
+});
+
 app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(router);

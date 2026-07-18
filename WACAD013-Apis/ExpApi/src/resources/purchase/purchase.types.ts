@@ -1,3 +1,3 @@
 import type { Purchase } from "../../generated/prisma/client.js";
 
-export type CreatePurchaseDTO = Pick<Purchase, "userId">;
+export type CreatePurchaseDTO = Pick<Purchase, "id" | "userId">;

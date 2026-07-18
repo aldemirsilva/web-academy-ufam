@@ -5,6 +5,7 @@ import languageRouter from "../resources/language/language.router.js";
 import authRouter from "../resources/auth/auth.router.js";
 import purchaseRouter from "../resources/purchase/purchase.router.js";
 import purchaseItemRouter from "../resources/purchaseItem/purchaseItem.router.js";
+import comprasRouter from "../resources/compras/compras.router.js";
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use("/languages", languageRouter);
 router.use("/auth", authRouter);
 router.use("/purchases", purchaseRouter);
 router.use("/purchase-items", purchaseItemRouter);
+router.use("/compras", comprasRouter);
 
 export default router;

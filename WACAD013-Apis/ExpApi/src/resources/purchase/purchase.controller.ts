@@ -44,6 +44,7 @@ const read = async (req: Request, res: Response) => {
 const update = async (req: Request, res: Response) => {
   const id = req.params.id as string;
   const data: CreatePurchaseDTO = {
+    id: req.session.purchaseId as string,
     userId: req.body.userId as string,
   };
   try {

@@ -5,4 +5,4 @@ export type CreatePurchaseItemDTO = Pick<
   "purchaseId" | "productId" | "quantity"
 >;
 
-export type UpdatePurchaseItemDTO = Pick<PurchaseItem, "quantity">;
+export type UpdatePurchaseItemDTO = Pick<CreatePurchaseItemDTO, "quantity">;

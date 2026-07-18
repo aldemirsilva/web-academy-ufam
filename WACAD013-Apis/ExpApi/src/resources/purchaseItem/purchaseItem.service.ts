@@ -15,6 +15,14 @@ export async function createPurchaseItem(
   return await prisma.purchaseItem.create({ data });
 }
 
+export async function createManyPurchaseItems(
+  data: CreatePurchaseItemDTO[],
+): Promise<PurchaseItem[]> {
+  return await Promise.all(
+    data.map((item) => prisma.purchaseItem.create({ data: item })),
+  );
+}
+
 export async function getPurchaseItem(
   purchaseId: string,
   productId: string,
