@@ -1,7 +1,11 @@
+import { CartItemType } from "@/app/types/cartItem";
 import { CartItem } from "../CartItem/CartItem";
-import getProductTotal from "../CartItem/CartItem";
 
-export function CartList() {
+interface CartListProps {
+  cartItems: CartItemType[];
+}
+
+export function CartList({ cartItems }: CartListProps) {
   return (
     <div className="card mb-4">
       <div className="row card-body">
@@ -18,38 +22,9 @@ export function CartList() {
               </tr>
             </thead>
             <tbody>
-              <tr key="prod-1">
-                <td>Monitor UltraWide 34&rdquo;</td>
-                <td>R$ {(2200).toFixed(2)}</td>
-                <td>1</td>
-
-                <td>R$ {getProductTotal(2200, 1).toFixed(2)}</td>
-                <td>
-                  <button className="btn btn-danger btn-sm">Remover</button>
-                </td>
-              </tr>
-
-              <tr key="prod-2">
-                <td>Teclado Mecânico RGB</td>
-                <td>R$ {(450).toFixed(2)}</td>
-                <td>2</td>
-
-                <td>R$ {getProductTotal(450, 2).toFixed(2)}</td>
-                <td>
-                  <button className="btn btn-danger btn-sm">Remover</button>
-                </td>
-              </tr>
-
-              <tr key="prod-3">
-                <td>Mouse Gamer Sem Fio</td>
-                <td>R$ {(350).toFixed(2)}</td>
-                <td>2</td>
-
-                <td>R$ {getProductTotal(350, 2).toFixed(2)}</td>
-                <td>
-                  <button className="btn btn-danger btn-sm">Remover</button>
-                </td>
-              </tr>
+              {cartItems.map((item) => (
+                <CartItem key={item.id} cartItem={item} />
+              ))}
             </tbody>
           </table>
         </div>

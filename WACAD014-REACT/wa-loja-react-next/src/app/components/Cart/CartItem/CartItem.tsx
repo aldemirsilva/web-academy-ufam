@@ -1,19 +1,26 @@
-const getProductTotal = (price: number, quantity: number): number =>
-  price * quantity;
+import { CartItemType } from "@/app/types/cartItem";
 
-export function CartItem() {
+interface CartItemProps {
+  cartItem: CartItemType;
+}
+
+export function CartItem(props: CartItemProps) {
+  const { cartItem } = props;
+  const { id, nome, preco, quantidade } = cartItem;
+
+  const getProductTotal = (price: number, quantity: number): number =>
+    price * quantity;
+
   return (
-    <tr key="prod-3">
-      <td>Mouse Gamer Sem Fio</td>
-      <td>R$ {(350).toFixed(2)}</td>
-      <td>2</td>
+    <tr key={id}>
+      <td>{nome}</td>
+      <td>R$ {preco.toFixed(2)}</td>
+      <td>{quantidade}</td>
 
-      <td>R$ {getProductTotal(350, 2).toFixed(2)}</td>
+      <td>R$ {getProductTotal(preco, quantidade).toFixed(2)}</td>
       <td>
         <button className="btn btn-danger btn-sm">Remover</button>
       </td>
     </tr>
   );
 }
-
-export default getProductTotal;
