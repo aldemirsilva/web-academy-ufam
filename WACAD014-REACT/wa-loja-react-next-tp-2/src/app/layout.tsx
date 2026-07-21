@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import type { Metadata } from "next";
 import { Navbar } from "./components/Navbar/Navbar";
 import BootstrapClient from "./components/Clients/BootstrapClient";
+import { ReactQueryClientProvider } from "./components/Clients/ReactQueryClient";
 
 export const metadata: Metadata = {
   title: "WA Loja",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <BootstrapClient />
+        <ReactQueryClientProvider>
+          <Navbar />
+          {children}
+          <BootstrapClient />
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
