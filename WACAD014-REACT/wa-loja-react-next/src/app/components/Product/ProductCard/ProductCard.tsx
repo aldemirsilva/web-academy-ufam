@@ -1,11 +1,12 @@
-import { ProductType as Product } from "@/app/types/product";
+import { ProductType } from "@/app/types/product";
 import Image from "next/image";
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductType;
+  onAddToCart: (product: ProductType) => void;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
     <div className="col">
       <div className="card shadow-sm h-100">
@@ -15,12 +16,15 @@ export function ProductCard({ product }: ProductCardProps) {
           alt={product.descricao}
           width={300}
           height={320}
-          // style={{ width: "100%", height: "auto" }}
         />
         <div className="card-body bg-light">
           <h5 className="card-title">{product.nome}</h5>
           <p className="card-text text-secondary">R$ {product.preco}</p>
-          <button className="btn btn-dark d-block w-100" type="button">
+          <button
+            className="btn btn-dark d-block w-100"
+            type="button"
+            onClick={() => onAddToCart(product)}
+          >
             Adicionar no carrinho
           </button>
         </div>
