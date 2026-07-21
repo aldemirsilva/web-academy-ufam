@@ -3,9 +3,10 @@ import { CartItem } from "../CartItem/CartItem";
 
 interface CartListProps {
   cartItems: CartItemType[];
+  onRemoveItemFromCart: (id: string) => void;
 }
 
-export function CartList({ cartItems }: CartListProps) {
+export function CartList({ cartItems, onRemoveItemFromCart }: CartListProps) {
   return (
     <div className="card mb-4">
       <div className="row card-body">
@@ -23,7 +24,11 @@ export function CartList({ cartItems }: CartListProps) {
             </thead>
             <tbody>
               {cartItems.map((item) => (
-                <CartItem key={item.id} cartItem={item} />
+                <CartItem
+                  key={item.id}
+                  cartItem={item}
+                  onRemoveItemFromCart={() => onRemoveItemFromCart(item.id)}
+                />
               ))}
             </tbody>
           </table>
