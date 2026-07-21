@@ -5,6 +5,8 @@ import { Navbar } from "./components/Navbar/Navbar";
 import BootstrapClient from "./components/Clients/BootstrapClient";
 import { ReactQueryClientProvider } from "./components/Clients/ReactQueryClient";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "WA Loja",
@@ -22,6 +24,7 @@ export default function RootLayout({
         <ReactQueryClientProvider>
           <Navbar />
           {children}
+          <ToastContainer />
           <BootstrapClient />
           <ReactQueryDevtools initialIsOpen={false} />
         </ReactQueryClientProvider>

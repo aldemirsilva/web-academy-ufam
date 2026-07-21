@@ -1,5 +1,7 @@
+import { useFavoriteProduct } from "@/app/hooks/useFavoriteProduct";
 import { ProductType } from "@/app/types/product";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 interface ProductCardProps {
   product: ProductType;
@@ -7,6 +9,11 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
+  const { addFavorite, isPending } = useFavoriteProduct(
+    () => toast.success("Favoritado com sucesso!"),
+    () => toast.error("Ocorreu um erro! Tente novamente."),
+  );
+
   return (
     <div className="col">
       <div className="card shadow-sm h-100">
@@ -26,6 +33,14 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             onClick={() => onAddToCart(product)}
           >
             Adicionar no carrinho
+          </button>
+
+          <button
+            className="btn btn-light d-block w-100 mt-2"
+            type="button"
+            onClick={() => addFavorite(product)}
+          >
+            {isPending ? "Favoritando..." : "Favoritar"}
           </button>
         </div>
       </div>
