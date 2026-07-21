@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Navbar } from "./components/Navbar/Navbar";
 import BootstrapClient from "./components/Clients/BootstrapClient";
 import { ReactQueryClientProvider } from "./components/Clients/ReactQueryClient";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const metadata: Metadata = {
   title: "WA Loja",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <BootstrapClient />
+          <ReactQueryDevtools initialIsOpen={false} />
         </ReactQueryClientProvider>
       </body>
     </html>

@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { CartSummary } from "./components/Cart/Cart Summary/CartSummary";
 import { ProductList } from "./components/Product/ProductList/ProductList";
-import { mockProducts } from "./mocks/products";
 import { ProductType } from "./types/product";
 
 export default function Products() {
@@ -21,7 +20,7 @@ export default function Products() {
           qtdTotalItems={qtdTotalItems}
           totalPurchase={totalPurchase}
         />
-        <ProductList products={mockProducts} onAddToCart={addToCart} />
+        <ProductList onAddToCart={addToCart} />
       </div>
     </main>
   );
