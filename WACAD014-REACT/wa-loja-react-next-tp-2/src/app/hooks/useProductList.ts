@@ -4,7 +4,7 @@ import { getProductList } from "../services/products";
 export function useProdutList() {
   const { data, isPending, isError } = useQuery({
     queryKey: ["productList"],
-    queryFn: () => getProductList(),
+    queryFn: getProductList,
   });
   return { products: data, isPending, isError };
 }

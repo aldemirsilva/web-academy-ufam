@@ -8,3 +8,11 @@ export async function addFavoriteProduct(product: ProductType) {
     .post<ProductType>("/favoritos", product)
     .then((response) => response.data);
 }
+
+export function getFavoritesList() {
+  return favoriteApi.get("/favoritos").then((response) => response.data);
+}
+
+export function removeFavoriteProduct(id: string) {
+  return favoriteApi.delete<ProductType>(`/favoritos/${id}`);
+}

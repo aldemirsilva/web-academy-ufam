@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import type { Metadata } from "next";
-import { Navbar } from "./components/Navbar/Navbar";
-import BootstrapClient from "./components/Clients/BootstrapClient";
-import { ReactQueryClientProvider } from "./components/Clients/ReactQueryClient";
+import { Navbar } from "./components/navbar/Navbar";
+import BootstrapClient from "./components/clients/BootstrapClient";
+import { ReactQueryClientProvider } from "./components/clients/ReactQueryClient";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
