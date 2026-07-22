@@ -5,5 +5,5 @@ export const productsApi = axios.create({
 });
 
 export const favoriteApi = axios.create({
-  baseURL: "https://favorites-json-server-plusmr07b-web-academy.vercel.app/",
+  baseURL: "https://favorites-json-server-plusmr07b-web-academy.vercel.app",
 });

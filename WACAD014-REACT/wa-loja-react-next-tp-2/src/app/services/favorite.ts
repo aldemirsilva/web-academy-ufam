@@ -9,8 +9,8 @@ export async function addFavoriteProduct(product: ProductType) {
     .then((response) => response.data);
 }
 
-export function getFavoritesList() {
-  return favoriteApi.get("/favoritos").then((response) => response.data);
+export async function getFavoritesList() {
+  return await favoriteApi.get("/favoritos").then((response) => response.data);
 }
 
 export function removeFavoriteProduct(id: string) {

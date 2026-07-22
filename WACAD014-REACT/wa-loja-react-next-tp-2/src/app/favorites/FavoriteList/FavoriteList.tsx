@@ -3,13 +3,9 @@ import { FavoriteItem } from "../FavoriteItem/FavoriteItem";
 
 interface FavoriteListProps {
   favoriteItems: ProductType[];
-  onRemoveItemFromFavorite: (id: string) => void;
 }
 
-export function FavoriteList({
-  favoriteItems,
-  onRemoveItemFromFavorite,
-}: FavoriteListProps) {
+export function FavoriteList({ favoriteItems }: FavoriteListProps) {
   return (
     <div className="card mb-4">
       <div className="row card-body">
@@ -25,13 +21,7 @@ export function FavoriteList({
             </thead>
             <tbody>
               {favoriteItems.map((item) => (
-                <FavoriteItem
-                  key={item.id}
-                  favoriteItem={item}
-                  onRemoveItemFromFavorite={() =>
-                    onRemoveItemFromFavorite(item.id)
-                  }
-                />
+                <FavoriteItem key={item.id} favoriteItem={item} />
               ))}
             </tbody>
           </table>
