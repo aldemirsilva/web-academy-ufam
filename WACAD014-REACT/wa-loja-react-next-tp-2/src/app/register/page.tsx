@@ -1,6 +1,33 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function Register() {
+  const router = useRouter();
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    confirmEmail: "",
+    password: "",
+  });
+
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = target;
+
+    setForm({
+      ...form,
+      [id]: value,
+    });
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push("/");
+  };
+
   return (
     <main>
       <div className="container-fluid d-flex min-vh-100">
@@ -9,7 +36,7 @@ export default function Register() {
             <h2>Bem vindo à WA Loja!</h2>
           </div>
           <div className="col-12 col-md-8 d-flex justify-content-center align-items-center">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
                   Nome
@@ -18,6 +45,8 @@ export default function Register() {
                   type="text"
                   className="form-control form-control-lg"
                   id="name"
+                  value={form.name}
+                  onChange={handleChange}
                   aria-describedby="name"
                   required
                 />
@@ -31,6 +60,8 @@ export default function Register() {
                   type="email"
                   className="form-control form-control-lg"
                   id="email"
+                  value={form.email}
+                  onChange={handleChange}
                   aria-describedby="email"
                   required
                 />
@@ -44,6 +75,8 @@ export default function Register() {
                   type="email"
                   className="form-control form-control-lg"
                   id="confirmEmail"
+                  value={form.confirmEmail}
+                  onChange={handleChange}
                   aria-describedby="confirmEmail"
                   required
                 />
@@ -56,6 +89,8 @@ export default function Register() {
                   type="password"
                   className="form-control form-control-lg"
                   id="password"
+                  value={form.password}
+                  onChange={handleChange}
                   required
                 />
               </div>

@@ -19,7 +19,6 @@ export default function Login() {
       ...form,
       [id]: value,
     });
-    console.log(form);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
