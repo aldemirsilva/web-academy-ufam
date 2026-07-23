@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { CartSummary } from "./cart/Cart Summary/CartSummary";
-import { ProductList } from "./products/ProductList/ProductList";
+import { ProductList } from "./product/ProductList/ProductList";
 import { ProductType } from "./types/product";
 
 export default function Products() {
