@@ -1,8 +1,32 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function Login() {
+  const router = useRouter();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = target;
+
+    setForm({
+      ...form,
+      [id]: value,
+    });
+    console.log(form);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push("/");
+  };
+
   return (
     <main>
       <div className="container-fluid d-flex min-vh-100">
@@ -11,7 +35,7 @@ export default function Login() {
             <h2>Bem vindo à WA Loja!</h2>
           </div>{" "}
           <div className="col-12 col-md-8 d-flex justify-content-center align-items-center">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Email
@@ -20,7 +44,9 @@ export default function Login() {
                   type="email"
                   className="form-control form-control-lg"
                   id="email"
+                  value={form.email}
                   aria-describedby="email"
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -32,6 +58,8 @@ export default function Login() {
                   type="password"
                   className="form-control form-control-lg"
                   id="password"
+                  value={form.password}
+                  onChange={handleChange}
                   required
                 />
               </div>

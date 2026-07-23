@@ -39,9 +39,6 @@ export default function ProductDetail() {
             <p className="card-text fw-medium">
               Anunciado por: {product.usuario_id}
             </p>
-            {isPending && (
-              <h5 className="card-title mb-4 fw-bold">Carregando...</h5>
-            )}
           </div>
         </div>
       </div>
