@@ -1,8 +1,17 @@
 "use client";
+
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { MouseEvent } from "react";
 
 export function Navbar() {
+  const router = useRouter();
+
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    router.push("/login");
+  };
+
   const pathName = usePathname();
   if (pathName === "/login" || pathName === "/register") return null;
   return (
@@ -41,7 +50,9 @@ export function Navbar() {
             </li>
           </ul>
 
-          <button className="btn btn-dark">Sair</button>
+          <button className="btn btn-dark" onClick={handleSubmit}>
+            Sair
+          </button>
         </div>
       </div>
     </nav>
