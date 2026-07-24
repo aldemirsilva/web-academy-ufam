@@ -1,6 +1,6 @@
 import ProductCard from "../ProductCard/ProductCard";
 import { useContext } from "react";
-import { FavoritesContext } from "@/app/page";
+import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
 
 export default function FavoritesSummary() {
   const { favorites } = useContext(FavoritesContext);
