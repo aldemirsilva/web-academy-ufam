@@ -1,22 +1,21 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
+import { FavoritesContext } from "@/app/page";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
+import { useContext } from "react";
 
 interface ProductCardProps {
   product: Product;
-  favorites: Product[];
-  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
   showImage?: boolean;
   showButton?: boolean;
 }
 
 export default function ProductCard({
   product,
-  favorites,
-  setFavorites,
   showImage = true,
   showButton = true,
 }: ProductCardProps) {
+  const { favorites, setFavorites } = useContext(FavoritesContext);
   const addToFavorites = (productToAdd: Product) => {
     setFavorites((currentFavorites) => [...currentFavorites, productToAdd]);
   };

@@ -1,15 +1,9 @@
-import { Product } from "@/app/types/product";
 import ProductCard from "../ProductCard/ProductCard";
+import { useContext } from "react";
+import { FavoritesContext } from "@/app/page";
 
-interface FavoritesSummaryProps {
-  favorites: Product[];
-  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
-}
-
-export default function FavoritesSummary({
-  favorites,
-  setFavorites,
-}: FavoritesSummaryProps) {
+export default function FavoritesSummary() {
+  const { favorites } = useContext(FavoritesContext);
   const recentFavorites = favorites.slice(-3).reverse();
 
   return (
@@ -26,8 +20,6 @@ export default function FavoritesSummary({
             <ProductCard
               key={product.id}
               product={product}
-              favorites={favorites}
-              setFavorites={setFavorites}
               showImage={false}
               showButton={false}
             />

@@ -4,15 +4,9 @@ import ProductCard from "../ProductCard/ProductCard";
 
 interface ProductListProps {
   products: Product[];
-  favorites: Product[];
-  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
-export default function ProductList({
-  products,
-  favorites,
-  setFavorites,
-}: ProductListProps) {
+export default function ProductList({ products }: ProductListProps) {
   return (
     <div className="row row-cols-1 row-cols-lg-2">
       <div className="col-lg-9">
@@ -20,18 +14,13 @@ export default function ProductList({
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
           {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              setFavorites={setFavorites}
-              favorites={favorites}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
 
       <div className="col-lg-3">
-        <FavoritesSummary favorites={favorites} setFavorites={setFavorites} />
+        <FavoritesSummary />
       </div>
     </div>
   );
