@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { useRouter } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 type RegisterFormInputs = {
   nome: string;
@@ -21,9 +21,10 @@ export default function RegisterPage() {
 
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<RegisterFormInputs> = () => {
+  const onSubmit = (data: RegisterFormInputs) => {
     router.push("/");
   };
+
   return (
     <main>
       <div className="container-fluid d-flex min-vh-100">

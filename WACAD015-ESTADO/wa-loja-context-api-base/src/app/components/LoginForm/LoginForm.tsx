@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 type LoginFormInputs = {
   email: string;
@@ -18,7 +18,7 @@ export default function LoginForm() {
 
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<LoginFormInputs> = () => {
+  const onSubmit = (data: LoginFormInputs) => {
     router.push("/");
   };
 
