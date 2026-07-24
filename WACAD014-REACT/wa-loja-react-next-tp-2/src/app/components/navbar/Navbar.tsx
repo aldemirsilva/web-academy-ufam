@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { MouseEvent } from "react";
 
 export function Navbar() {
   const router = useRouter();
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     router.push("/login");
   };
 
