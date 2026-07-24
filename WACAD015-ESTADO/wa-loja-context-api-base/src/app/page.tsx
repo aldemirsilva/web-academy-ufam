@@ -2,7 +2,6 @@
 
 import ProductList from "./components/ProductList/ProductList";
 import { mockProducts } from "./mocks/products";
-import { FavoritesProvider } from "./contexts/FavoritesContext/FavoritesProvider";
 
 export default function HomePage() {
   const products = mockProducts;
@@ -10,9 +9,7 @@ export default function HomePage() {
   return (
     <main>
       <div className="container p-5">
-        <FavoritesProvider>
-          <ProductList products={products} />
-        </FavoritesProvider>
+        <ProductList products={products} />
       </div>
     </main>
   );

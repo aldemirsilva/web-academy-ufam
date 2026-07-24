@@ -1,16 +1,15 @@
+import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
 import { calculateDiscountedPrice } from "@/app/helpers";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
+import { useContext } from "react";
 
 interface FavoriteItemProps {
   favoriteItem: Product;
-  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
-export default function FavoriteItem({
-  favoriteItem,
-  setFavorites,
-}: FavoriteItemProps) {
+export default function FavoriteItem({ favoriteItem }: FavoriteItemProps) {
+  const { setFavorites } = useContext(FavoritesContext);
   const removeFavorite = (id: string) => {
     setFavorites((currentFavorites) =>
       currentFavorites.filter((item) => item.id !== id),

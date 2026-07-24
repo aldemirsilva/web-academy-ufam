@@ -1,17 +1,11 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
-import { Product } from "@/app/types/product";
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
+import { useContext } from "react";
+import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
 
-interface FavoritesListProps {
-  favoriteProducts: Product[];
-  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
-}
-
-export default function FavoritesList({
-  favoriteProducts,
-  setFavorites,
-}: FavoritesListProps) {
-  const totalFavoriteValue = favoriteProducts.reduce((acc, product) => {
+export default function FavoritesList() {
+  const { favorites } = useContext(FavoritesContext);
+  const totalFavoriteValue = favorites.reduce((acc, product) => {
     return (
       acc + calculateDiscountedPrice(Number(product.preco), product.desconto)
     );
@@ -22,7 +16,7 @@ export default function FavoritesList({
       <div className="row card-body">
         <h5 className="card-title mb-4 fw-bold">Lista de favoritos:</h5>
 
-        {favoriteProducts.length > 0 ? (
+        {favorites.length > 0 ? (
           <div className="table-responsive">
             <table className="table table-borderless">
               <thead>
@@ -34,12 +28,8 @@ export default function FavoritesList({
                 </tr>
               </thead>
               <tbody>
-                {favoriteProducts.map((item) => (
-                  <FavoriteItem
-                    key={item.id}
-                    favoriteItem={item}
-                    setFavorites={setFavorites}
-                  />
+                {favorites.map((item) => (
+                  <FavoriteItem key={item.id} favoriteItem={item} />
                 ))}
               </tbody>
             </table>
@@ -50,7 +40,7 @@ export default function FavoritesList({
       </div>
       <div className="card-footer d-flex flex-column">
         <small className="text-muted">
-          Quantidade de produtos: {favoriteProducts.length}
+          Quantidade de produtos: {favorites.length}
         </small>
 
         <small className="text-muted">
