@@ -39,8 +39,7 @@ export const FavoritesProvider = ({
   };
 
   const addToFavorites = (productToAdd: Product) => {
-    if (!isInFavorites)
-      setFavorites((currentFavorites) => [...currentFavorites, productToAdd]);
+    setFavorites((currentFavorites) => [...currentFavorites, productToAdd]);
   };
 
   const totalFavoriteValue = favorites.reduce((acc, product) => {
