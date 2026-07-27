@@ -1,5 +1,5 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
-import { useFavoritesContext } from "@/app/hooks/useFavoritesContext";
+import { useFavoritesContext } from "@/app/contexts/FavoritesContext/useFavoritesContext";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
 

@@ -1,6 +1,6 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
-import { useFavoritesContext } from "@/app/hooks/useFavoritesContext";
+import { useFavoritesContext } from "@/app/contexts/FavoritesContext/useFavoritesContext";
 
 export default function FavoritesList() {
   const { favorites } = useFavoritesContext();
