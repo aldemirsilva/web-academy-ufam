@@ -1,9 +1,8 @@
 import ProductCard from "../ProductCard/ProductCard";
-import { useContext } from "react";
-import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
+import { useFavoritesContext } from "@/app/hooks/useFavoritesContext";
 
 export default function FavoritesSummary() {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites } = useFavoritesContext();
   const recentFavorites = favorites.slice(-3).reverse();
 
   return (

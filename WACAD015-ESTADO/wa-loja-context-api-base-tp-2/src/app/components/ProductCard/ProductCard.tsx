@@ -15,12 +15,7 @@ export default function ProductCard({
   showImage = true,
   showButton = true,
 }: ProductCardProps) {
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-  const addToFavorites = (productToAdd: Product) => {
-    setFavorites((currentFavorites) => [...currentFavorites, productToAdd]);
-  };
-
-  const isFavorite = favorites.some((item) => item.id === product.id);
+  const { addToFavorites, isInFavorites } = useContext(FavoritesContext);
 
   return (
     <div className="col">
@@ -49,15 +44,15 @@ export default function ProductCard({
           {showButton ? (
             <button
               className={
-                isFavorite
+                isInFavorites(product.id)
                   ? "btn btn-success d-block w-100"
                   : "btn btn-secondary d-block w-100"
               }
               type="button"
               onClick={() => addToFavorites(product)}
-              disabled={isFavorite}
+              disabled={isInFavorites(product.id)}
             >
-              {isFavorite ? "Favoritado" : "Favoritar"}
+              {isInFavorites(product.id) ? "Favoritado" : "Favoritar"}
             </button>
           ) : null}
         </div>

@@ -1,10 +1,9 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
-import { useContext } from "react";
-import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
+import { useFavoritesContext } from "@/app/hooks/useFavoritesContext";
 
 export default function FavoritesList() {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites } = useFavoritesContext();
   const totalFavoriteValue = favorites.reduce((acc, product) => {
     return (
       acc + calculateDiscountedPrice(Number(product.preco), product.desconto)
