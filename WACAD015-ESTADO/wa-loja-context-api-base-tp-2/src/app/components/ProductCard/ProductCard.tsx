@@ -1,8 +1,7 @@
 import { calculateDiscountedPrice } from "@/app/helpers";
-import { FavoritesContext } from "@/app/contexts/FavoritesContext/FavoritesProvider";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
-import { useContext } from "react";
+import { useFavoritesContext } from "@/app/hooks/useFavoritesContext";
 
 interface ProductCardProps {
   product: Product;
@@ -15,7 +14,7 @@ export default function ProductCard({
   showImage = true,
   showButton = true,
 }: ProductCardProps) {
-  const { addToFavorites, isInFavorites } = useContext(FavoritesContext);
+  const { addToFavorites, isInFavorites } = useFavoritesContext();
 
   return (
     <div className="col">
