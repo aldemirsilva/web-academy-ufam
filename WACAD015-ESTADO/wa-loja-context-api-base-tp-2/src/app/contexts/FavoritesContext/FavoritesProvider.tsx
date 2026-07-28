@@ -58,13 +58,8 @@ export const FavoritesProvider = ({
 
   useEffect(() => {
     const favoritesLocalStorage = localStorage.getItem("favorites");
-
     if (favoritesLocalStorage) setFavorites(JSON.parse(favoritesLocalStorage));
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
 
   const values = {
     favorites,

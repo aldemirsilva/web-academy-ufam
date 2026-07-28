@@ -43,7 +43,7 @@ export default function FavoritesList() {
         </small>
 
         <small className="text-muted">
-          Valor total: R$ {totalFavoriteValue}
+          Valor total: R$ {totalFavoriteValue.toFixed(2)}
         </small>
       </div>
     </div>
