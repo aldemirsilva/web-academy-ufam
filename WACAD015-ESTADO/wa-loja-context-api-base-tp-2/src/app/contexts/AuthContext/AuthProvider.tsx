@@ -39,7 +39,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const logout = () => {
     setEmail(null);
-    localStorage.setItem("user", "");
+    localStorage.removeItem("user");
     router.push("/login");
   };
 
