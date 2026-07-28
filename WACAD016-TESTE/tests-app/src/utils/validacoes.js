@@ -5,11 +5,17 @@
  * @returns {string} - O primeiro nome extraído do nome completo ou o próprio nome caso não haja espaços.
  */
 function firstName(fullName) {
-  const whitespace = fullName.lastIndexOf(" ");
+  fullName = fullName.trim();
+  const whitespace = fullName.indexOf(" ");
 
   if (whitespace === -1) return fullName;
   else return fullName.slice(0, whitespace);
 }
+/**
+ * A função firstName estava falhando devido o método utilizado (lastIndexOf) retornar o índice do último caracter de espaço.
+ * O correto seria retornar o primeiro caracter de espaço, por isso o método correto é o indexOf.
+ * Também foi aplicado o método trim() na string para remover os espaços antes e após as palavras.
+ */
 
 /**
  * Verifica a disponibilidade de um produto em estoque com base no tipo e na quantidade desejada.
@@ -29,9 +35,13 @@ function checkStockAvailability(productType, quantity) {
   };
 
   const availableStock = stock[productType];
-  if (availableStock === 0) return false;
+  if (availableStock < quantity) return false;
   else return true;
 }
+/**
+ * A função checkStockAvailability só estava retornando false quando o item estivesse com estoque igual a zero.
+ * Com a correção a função retorna false quando o item estiver com o estoque menor que a quantidade passada à função.
+ */
 
 /**
  * Calcula o preço total de um array de produtos em uma aplicação de e-commerce.
@@ -50,10 +60,15 @@ function checkStockAvailability(productType, quantity) {
 function calculateTotalPrice(products) {
   let total = 0;
   for (let i = 0; i < products.length; i++) {
-    total = products[i].price;
+    total += products[i].price * products[i].quantity;
   }
   return total;
 }
+/**
+ * A função calculateTotalPrice não estava acumulando os valores a cada iteração e não estava multiplicando a quantidade de cada produto pelo preço.
+ * Assim, retornava apenas o preço do último item iterado.
+ * A função foi corrigida multiplicando o preço de cada item pela quantidade e acumulando o resultado na variável total.
+ */
 
 module.exports = {
   firstName,
