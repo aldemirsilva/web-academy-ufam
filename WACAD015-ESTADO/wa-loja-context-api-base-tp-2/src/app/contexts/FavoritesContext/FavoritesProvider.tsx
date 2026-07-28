@@ -1,7 +1,7 @@
 "use client";
 import { calculateDiscountedPrice } from "@/app/helpers";
 import { Product } from "@/app/types/product";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 type FavoritesContextType = {
   favorites: Product[];
@@ -10,6 +10,7 @@ type FavoritesContextType = {
   removeProductFromFavorites: (id: string) => void;
   addToFavorites: (productToAdd: Product) => void;
   totalFavoriteValue: number;
+  saveLocalStorage: (newFavorites: Product[]) => void;
 };
 
 export const FavoritesContext = createContext<FavoritesContextType>({
@@ -19,6 +20,7 @@ export const FavoritesContext = createContext<FavoritesContextType>({
   removeProductFromFavorites: () => false,
   addToFavorites: () => 0,
   totalFavoriteValue: 0,
+  saveLocalStorage: () => {},
 });
 
 export const FavoritesProvider = ({
@@ -32,14 +34,16 @@ export const FavoritesProvider = ({
     return favorites.some((item) => item.id === id);
   };
 
-  const removeProductFromFavorites = (id: string) => {
-    setFavorites((currentFavorites) =>
-      currentFavorites.filter((item) => item.id !== id),
-    );
+  const addToFavorites = (productToAdd: Product) => {
+    const newFavorites = [...favorites, productToAdd];
+    setFavorites(newFavorites);
+    saveLocalStorage(newFavorites);
   };
 
-  const addToFavorites = (productToAdd: Product) => {
-    setFavorites((currentFavorites) => [...currentFavorites, productToAdd]);
+  const removeProductFromFavorites = (id: string) => {
+    const newFavorites = favorites.filter((item) => item.id !== id);
+    setFavorites(newFavorites);
+    saveLocalStorage(newFavorites);
   };
 
   const totalFavoriteValue = favorites.reduce((acc, product) => {
@@ -48,6 +52,20 @@ export const FavoritesProvider = ({
     );
   }, 0);
 
+  const saveLocalStorage = (newFavorites: Product[]) => {
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+  };
+
+  useEffect(() => {
+    const favoritesLocalStorage = localStorage.getItem("favorites");
+
+    if (favoritesLocalStorage) setFavorites(JSON.parse(favoritesLocalStorage));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   const values = {
     favorites,
     setFavorites,
@@ -55,6 +73,7 @@ export const FavoritesProvider = ({
     removeProductFromFavorites,
     addToFavorites,
     totalFavoriteValue,
+    saveLocalStorage,
   };
 
   return (

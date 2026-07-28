@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Navbar() {
+  const { email, logout } = useAuthContext();
+
   return (
     <nav className="navbar navbar-expand-md bg-light border-bottom border-body sticky-top">
       <div className="container-fluid">
@@ -34,11 +37,16 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <Link className="nav-link " href="/login">
-            <button type="button" className="btn btn-secondary">
+          <div className="d-flex align-items-center gap-3">
+            {email && <span className="text-muted">{email}</span>}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={logout}
+            >
               Sair
             </button>
-          </Link>
+          </div>
         </div>
       </div>
     </nav>

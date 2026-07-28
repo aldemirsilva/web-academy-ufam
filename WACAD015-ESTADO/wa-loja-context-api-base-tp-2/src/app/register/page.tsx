@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useAuthContext } from "../components/hooks/useAuthContext";
 
 type RegisterFormInputs = {
   nome: string;
@@ -19,10 +19,10 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm<RegisterFormInputs>();
 
-  const router = useRouter();
+  const { logout } = useAuthContext();
 
-  const onSubmit = (data: RegisterFormInputs) => {
-    router.push("/");
+  const onSubmit: SubmitHandler<RegisterFormInputs> = () => {
+    logout();
   };
 
   return (

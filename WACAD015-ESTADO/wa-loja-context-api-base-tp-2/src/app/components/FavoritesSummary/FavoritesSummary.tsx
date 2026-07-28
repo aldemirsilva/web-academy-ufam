@@ -1,5 +1,5 @@
 import ProductCard from "../ProductCard/ProductCard";
-import { useFavoritesContext } from "@/app/contexts/FavoritesContext/useFavoritesContext";
+import { useFavoritesContext } from "@/app/components/hooks/useFavoritesContext";
 
 export default function FavoritesSummary() {
   const { favorites } = useFavoritesContext();
