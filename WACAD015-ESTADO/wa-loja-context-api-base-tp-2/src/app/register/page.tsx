@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAuthContext } from "../components/hooks/useAuthContext";
+import { useAuthContext } from "@/app/hooks/useAuthContext";
 
 type RegisterFormInputs = {
   nome: string;

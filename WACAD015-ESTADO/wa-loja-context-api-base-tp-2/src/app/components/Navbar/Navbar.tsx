@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "@/app/hooks/useAuthContext";
 
 export default function Navbar() {
   const { email, logout } = useAuthContext();
