@@ -35,12 +35,14 @@ function checkStockAvailability(productType, quantity) {
   };
 
   const availableStock = stock[productType];
+  if (availableStock === undefined) return false;
   if (availableStock < quantity) return false;
   else return true;
 }
 /**
  * A função checkStockAvailability só estava retornando false quando o item estivesse com estoque igual a zero.
  * Com a correção a função retorna false quando o item estiver com o estoque menor que a quantidade passada à função.
+ * Também foi necessário adicionar uma comparação com undefined caso seja pesqusado um produto que não existe no estoque.
  */
 
 /**

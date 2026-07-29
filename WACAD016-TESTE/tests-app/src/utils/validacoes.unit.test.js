@@ -5,51 +5,79 @@ const {
 } = require("./validacoes");
 
 describe("Testa a função firstName", () => {
-  describe("Dada uma entrada válida deve retornar o primeiro nome.", () => {
-    test("Verifica se está retornando o primeiro nome corretamente.", () => {
+  describe("Deve retornar o primeiro nome com uma entrada válida.", () => {
+    test("Deve retornar o primeiro nome corretamente quando a entrada está sem espaços antes e depois.", () => {
       expect(firstName("Fulano da Silva")).toBe("Fulano");
     });
 
-    test("Verifica se está retornando o primeiro nome corretamente (entrada com um espaço antes).", () => {
+    test("Deve retornar o primeiro nome quando a entrada tem apenas uma palavra.", () => {
+      expect(firstName("Fulano")).toBe("Fulano");
+    });
+
+    test("Deve retornar o primeiro nome quando há múltiplos espaços entre as palavras.", () => {
+      expect(firstName("Fulano   da Silva")).toBe("Fulano");
+    });
+
+    test("Deve retornar string vazia quando a entrada contém apenas espaços.", () => {
+      expect(firstName("   ")).toBe("");
+    });
+
+    test("Deve retornar o primeiro nome quando a entrada tem um espaço antes.", () => {
       expect(firstName(" Fulano da Silva")).toBe("Fulano");
     });
 
-    test("Verifica se está retornando o primeiro nome corretamente (entrada com um espaço após).", () => {
+    test("Deve retornar o primeiro nome quando a entrada tem um espaço depois.", () => {
       expect(firstName("Fulano da Silva ")).toBe("Fulano");
     });
 
-    test("Verifica que na string de retorno não há o caracter de espaço (entrada com um espaço antes).", () => {
+    test("Deve retornar o primeiro nome sem espaços quando a entrada tem um espaço depois.", () => {
       expect(firstName("Sicrano ")).not.toMatch(/ /);
     });
 
-    test("Verifica que na string de retorno não há o caracter de espaço (entrada com um espaço após).", () => {
+    test("Deve retornar o primeiro nome (entrada com um espaço antes).", () => {
       expect(firstName(" Beltrano")).not.toMatch(/ /);
     });
   });
 
-  describe("Dada uma entrada invalida verifica se retorna erro.", () => {
-    test("Verifica o retorno da função quando é passado um número", () => {
+  describe("Deve retornar erro com uma entrada invalida.", () => {
+    test("Deve retornar erro quando é passado um número", () => {
       expect(() => firstName(123456)).toThrow(TypeError);
     });
 
-    test("Verifica o retorno da função quando é passado um booleano", () => {
+    test("Deve retornar erro quando é passado um booleano", () => {
       expect(() => firstName(true)).toThrow(TypeError);
+    });
+
+    test("Deve retornar erro quando é passado null", () => {
+      expect(() => firstName(null)).toThrow(TypeError);
     });
   });
 });
 
 describe("Testa a função checkStockAvailability", () => {
-  test("A função deve retornar true caso um item esteja disponível no estoque", () => {
+  test("Deve retornar true caso um item esteja disponível no estoque", () => {
     expect(checkStockAvailability("smartphone", 15)).toBe(true);
   });
 
-  test("A função deve retornar false caso um item não esteja disponível no estoque", () => {
+  test("Deve retornar false caso um item não esteja disponível no estoque", () => {
     expect(checkStockAvailability("headphone", 10)).toBe(false);
+  });
+
+  test("Deve retornar true quando a quantidade desejada for zero.", () => {
+    expect(checkStockAvailability("book", 0)).toBe(true);
+  });
+
+  test("Deve retornar true quando a quantidade desejada for exatamente igual ao estoque", () => {
+    expect(checkStockAvailability("laptop", 10)).toBe(true);
+  });
+
+  test("Deve retornar false quando o produto não existir no estoque", () => {
+    expect(checkStockAvailability("mouse", 1)).toBe(false);
   });
 });
 
 describe("Testa a função calculateTotalPrice", () => {
-  test("Dada uma entrada válida verifica se o resultados da soma dos itens está correta.", () => {
+  test("Deve retornar a soma correta com uma entrada válida.", () => {
     const prods = [
       { name: "Product 1", price: 10, quantity: 2 },
       { name: "Product 2", price: 15, quantity: 2 },
@@ -57,5 +85,21 @@ describe("Testa a função calculateTotalPrice", () => {
     ];
 
     expect(calculateTotalPrice(prods)).toBe(70);
+  });
+
+  test("Deve retornar zero quando o array de produtos estiver vazio.", () => {
+    expect(calculateTotalPrice([])).toBe(0);
+  });
+
+  test("Deve calcular corretamente com um único produto.", () => {
+    expect(
+      calculateTotalPrice([{ name: "Product 1", price: 12, quantity: 3 }]),
+    ).toBe(36);
+  });
+
+  test("Deve retornar zero quando o produto tiver quantidade zero.", () => {
+    expect(
+      calculateTotalPrice([{ name: "Product 1", price: 12, quantity: 0 }]),
+    ).toBe(0);
   });
 });
