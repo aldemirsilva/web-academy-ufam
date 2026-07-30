@@ -34,7 +34,7 @@ export default function FavoriteItem({
         R${" "}
         {calculatePriceWithDiscount(
           Number(favoriteItem.preco),
-          favoriteItem.desconto
+          favoriteItem.desconto,
         ).toFixed(2)}
       </td>
 

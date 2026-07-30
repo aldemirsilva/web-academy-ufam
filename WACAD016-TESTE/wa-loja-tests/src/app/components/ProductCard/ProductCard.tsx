@@ -38,7 +38,7 @@ export default function ProductCard({
             Por R${" "}
             {calculatePriceWithDiscount(
               Number(product.preco),
-              product.desconto
+              product.desconto,
             )}
           </h5>
 

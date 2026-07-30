@@ -6,7 +6,9 @@ export const useFavoritesTotalValue = () => {
   const { favorites } = useContext(FavoritesContext);
 
   const totalValue = favorites.reduce((acc, product) => {
-    return acc + calculatePriceWithDiscount(Number(product.preco), product.desconto);
+    return (
+      acc + calculatePriceWithDiscount(Number(product.preco), product.desconto)
+    );
   }, 0);
 
   return totalValue;
