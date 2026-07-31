@@ -37,6 +37,10 @@ describe("Testa a função firstName", () => {
     test("Deve retornar o primeiro nome (entrada com um espaço antes).", () => {
       expect(firstName(" Beltrano")).not.toMatch(/ /);
     });
+
+    test("Deve retornar string vazia quando a entrada for uma string vazia.", () => {
+      expect(firstName("")).toBe("");
+    });
   });
 
   describe("Deve retornar erro com uma entrada invalida.", () => {
@@ -50,6 +54,10 @@ describe("Testa a função firstName", () => {
 
     test("Deve retornar erro quando é passado null", () => {
       expect(() => firstName(null)).toThrow(TypeError);
+    });
+
+    test("Deve retornar erro quando é passado undefined", () => {
+      expect(() => firstName(undefined)).toThrow(TypeError);
     });
   });
 });
@@ -73,6 +81,22 @@ describe("Testa a função checkStockAvailability", () => {
 
   test("Deve retornar false quando o produto não existir no estoque", () => {
     expect(checkStockAvailability("mouse", 1)).toBe(false);
+  });
+
+  test("Deve retornar false quando o produto tiver estoque zerado e for solicitada ao menos uma unidade", () => {
+    expect(checkStockAvailability("book", 1)).toBe(false);
+  });
+
+  test("Deve retornar false quando o nome do produto não corresponder por diferença de maiúsculas/minúsculas", () => {
+    expect(checkStockAvailability("Laptop", 5)).toBe(false);
+  });
+
+  test("Deve retornar false quando a quantidade desejada for uma fração maior que o estoque disponível", () => {
+    expect(checkStockAvailability("laptop", 10.5)).toBe(false);
+  });
+
+  test("Deve retornar false quando a quantidade desejada for negativa", () => {
+    expect(checkStockAvailability("laptop", -5)).toBe(false);
   });
 });
 
@@ -101,5 +125,14 @@ describe("Testa a função calculateTotalPrice", () => {
     expect(
       calculateTotalPrice([{ name: "Product 1", price: 12, quantity: 0 }]),
     ).toBe(0);
+  });
+
+  test("Deve calcular corretamente com preços decimais.", () => {
+    const prods = [
+      { name: "Product 1", price: 9.99, quantity: 3 },
+      { name: "Product 2", price: 4.5, quantity: 2 },
+    ];
+
+    expect(calculateTotalPrice(prods)).toBeCloseTo(38.97);
   });
 });
