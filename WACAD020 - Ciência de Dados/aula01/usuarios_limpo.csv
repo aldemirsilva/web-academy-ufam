@@ -1,0 +1,177 @@
+user_id,nome,email,data_cadastro,cidade,estado,valor_ultima_compra,data_ultimo_login
+3e4cd4aa-904c-45d7-a242-cd4e64601acb,Ana Liz Novaes,nicolasgoncalves@example.net,2026-06-24,Dias,sao paulo,968.82,2026-08-22 22:09:58.191486
+6d4516ab-8cc3-47d2-9e43-f152ae798e00,Francisco Silveira,ybarros@example.net,2025-03-01,Albuquerque do Campo,PR,275.88,2026-08-10 17:02:09.777518
+d02c239a-ca87-457d-9461-9fd94a15d9b5,Sabrina Abreu,qsilveira@example.com,2026-03-30,Ramos,SC,754.25,2026-08-30 11:41:40.628894
+39093ac4-e09c-4013-93b2-eb09ca761885,Otto Porto,acastro@example.org,2025-10-22,Campos,BA,,2026-08-08 07:21:52.457987
+db500b22-0f0e-4aaa-863b-6b95a658a6ce,Liz Aparecida,pvieira@example.org,2026-03-20,da Cunha do Norte,PR,855.67,2026-08-29 04:29:31.335881
+a7ebb418-769e-4517-9ccf-85a829bd8dbd,Maria Vitória Borges,waparecida@example.com,2025-06-18,Machado de Minas,rio de janeiro,622.53,2026-08-21 11:58:55.743003
+04fe67fc-769a-429e-b15d-60f80776ccc0,Dr. Lorenzo Costela,mariacamara@example.org,2025-03-16,Pinto do Sul,sao paulo,328.14,2026-08-10 22:22:39.568421
+f94f53d8-3f23-495a-a826-2a7e61254fc1,Dr. Vicente Abreu,lucas-gabrielcassiano@example.net,2025-11-04,Albuquerque,SC,148.21,2026-08-01 04:44:11.521253
+f4fb5807-8c86-4f9e-a7ec-7a3c65a49824,Caleb Sousa,samuelrios@example.com,2026-08-29,das Neves,BA,206.54,2026-08-16 12:20:20.425480
+094c9565-2ae8-41b4-bf59-7b075fcbf16f,Mariah Porto,kaiquenascimento@example.com,2026-02-02,Moraes,PR,913.75,2026-08-06 17:48:07.843359
+e7f95157-c04e-4ad7-b73b-42715788ab40,Maria Fernanda da Costa,ucavalcanti@example.org,2025-11-28,Castro de Rezende,BA,,2026-08-08 10:16:25.719817
+c3eb4b23-dabc-4128-994b-a4db971813ce,Enzo Peixoto,peixotoesther@example.org,2026-07-19,Araújo Alegre,rio de janeiro,991.65,2026-08-29 11:39:02.259929
+8df862a8-e353-4f29-8697-918fa854a6a0,Heloisa Barros,ravi-lucca32@example.net,2024-09-05,Casa Grande,BA,946.19,2026-08-01 10:48:34.582515
+67c4b212-b954-413b-8cad-3f555247c1ee,Maria Luísa Pinto,maria-ceciliamoreira@example.net,2024-12-15,Guerra de Cavalcanti,São Paulo,149.09,2026-08-09 02:10:44.897163
+52c05558-c4d8-4fdb-bb99-57eb8d9b1883,Nina Moreira,nunesmurilo@example.com,2025-06-06,Pastor de Araújo,SC,,2026-08-18 21:41:28.526306
+6ffe6652-2026-45c5-888b-f35a5609406d,Ester Alves,ceciliaborges@example.org,2026-07-19,Aragão Paulista,BA,681.52,2026-08-17 06:03:19.258372
+c1818dd9-3e7f-4ec6-bded-1b42576304de,Matheus Pereira,luisafonseca@example.com,2026-01-09,Azevedo,PR,497.97,2026-08-10 22:08:43.139984
+baccfe9e-4e6a-4a73-bb70-3a388270da5d,Oliver Costa,da-luzpedro-henrique@example.com,2026-08-02,Cavalcante do Campo,São Paulo,451.53,2026-08-13 14:42:32.105517
+ea0e2323-4c3a-4fc0-b13f-ca3fa1690d2d,Ravi Nascimento,brendamartins@example.net,2026-06-20,Santos das Pedras,Rio de Janeiro,,2026-08-30 16:30:06.635634
+b4bc1cba-d9e5-4f5c-b8ee-998a11b2f779,Dr. Gustavo Henrique Aragão,carvalhosara@example.org,2025-09-25,da Rosa de Albuquerque,MG,304.41,2026-08-04 11:36:34.690725
+008b43fc-316b-48a7-a489-daed6464ece7,Nicole Jesus,pachecothomas@example.net,2026-05-14,Guerra de Andrade,PR,948.68,2026-08-19 17:10:39.956151
+3446a84a-4cda-4f79-b497-28f7b2a15f15,Erick Ferreira,sara30@example.net,2026-01-18,da Rosa,São Paulo,505.84,2026-08-13 04:40:43.028582
+95156d21-5cfa-42d0-8223-bb4e7a5d4403,Rebeca da Cunha,oliviamarques@example.net,2025-12-24,Abreu da Praia,MG,,2026-08-22 12:55:20.492796
+9d737c7a-503e-4ed3-a6ca-ae99b86c136f,Alice Moura,maria-clara16@example.com,2026-03-01,Leão,BA,270.65,2026-08-07 12:31:35.785793
+a919847c-d19e-4c64-9490-bc2cb0578a37,Aurora das Neves,wramos@example.org,2025-04-13,Ribeiro da Serra,BA,559.13,2026-08-03 21:40:01.974914
+ff1854e8-9c06-4ba7-b234-0c92f4ff91e5,Luiz Gustavo Rezende,camargodavi-luiz@example.com,2026-07-08,Alves,sao paulo,398.74,2026-08-30 02:31:40.640608
+f49ba1e9-8d4b-4a70-9968-24f5fd0bf7bb,Luiz Miguel Moreira,joao24@example.org,2025-08-23,Câmara,BA,904.09,2026-08-04 18:53:40.419469
+d00597dc-12f9-4f2f-9939-14a0c20cd057,Gabrielly Cirino,cavalcantimaria@example.net,2025-11-15,Lopes do Sul,PR,473.8,2026-08-19 23:14:55.653332
+8f5d3819-0127-425e-ab37-60ba579a34b7,Maysa Albuquerque,cassianoravi@example.net,2025-09-16,Barbosa,BA,,2026-08-04 05:26:37.470228
+2157c11c-ae55-4fb6-9d55-980d1902ac61,Ana Vitória Fogaça,ana-juliamendes@example.com,2025-09-15,Ferreira de da Rosa,São Paulo,156.6,2026-08-11 11:17:04.789811
+f88df86e-8002-4f96-82e3-992dab6bcf2f,Ana Camargo,hellena43@example.org,2026-08-23,Siqueira,PR,,2026-08-22 18:19:26.419103
+13ad4b07-7661-4248-b795-07d29e5d9d9b,Apollo Santos,mateus01@example.org,2025-09-16,Borges do Norte,Rio de Janeiro,866.6,2026-08-11 10:57:34.872942
+d7cf0217-dc1f-4629-b2cc-ab6e03e46a5c,Emanuelly Brito,xpimenta@example.net,2025-09-06,Pires,SP,422.82,2026-08-01 15:19:39.388838
+63556076-c31e-4505-8b20-f573e60b99bf,Pedro Santos,carvalholivia@example.org,2025-06-23,Duarte das Flores,BA,798.1,2026-08-25 20:16:01.390441
+6c411154-c4b3-4773-a03a-56a92bc1cc63,Maria Fernanda Nascimento,joao90@example.net,2024-10-02,Silveira,SC,822.06,2026-08-29 02:36:19.275153
+26fd5a48-16c5-415c-b7e6-1e66f60681de,Ana Júlia Almeida,qmelo@example.com,2025-01-25,Vasconcelos de Costela,PR,76.3,2026-08-13 03:40:52.072403
+2b4d307e-6b7b-40f4-9637-aff801841ea9,Luigi Oliveira,arthuraraujo@example.com,2025-01-12,da Cruz de Goiás,São Paulo,635.1,2026-08-11 22:05:30.141965
+27cab2ec-662a-4360-8757-3bbaf2c21718,Sr. João Vitor Machado,lorenasiqueira@example.com,2025-11-29,Pereira,MG,912.33,2026-08-06 20:02:21.032218
+1cd7923f-45f8-4d52-9ceb-31818d46837d,Kamilly Casa Grande,bruno83@example.net,2024-11-08,Fernandes,rio de janeiro,483.42,2026-08-11 01:17:45.237961
+c6f38c7d-0364-4a28-a57f-7bbbf2056f21,Asafe Campos,rochalorenzo@example.com,2026-02-06,Santos da Praia,sao paulo,481.57,2026-08-15 07:50:53.891760
+6041ba12-1d7a-41ec-8e98-21bfbabb2126,Levi Macedo,costamarcos-vinicius@example.org,2025-10-15,Oliveira da Mata,BA,383.6,2026-08-21 07:06:09.078832
+1b9a071b-e48b-48fc-bf96-7f1bc9cb33f2,Arthur Miguel Novais,ceciliaalbuquerque@example.org,2025-12-12,da Mata,PR,178.88,2026-08-23 03:49:15.756829
+f55127b9-4d73-42dd-92c7-9d53f10ff979,Maria Julia Castro,esthercunha@example.org,2026-04-30,da Rosa,SC,506.8,2026-08-06 01:08:29.869630
+1e4774ec-ac6d-4b33-a44c-8d5db5268f2d,Ísis Moreira,maria-laura88@example.org,2026-06-26,Pacheco,São Paulo,598.61,2026-08-26 12:55:24.043500
+985a82b0-764b-42c1-b4db-534cfed8b117,Rafaela Oliveira,raulmoura@example.net,2026-03-24,Alves,rio de janeiro,547.48,2026-08-17 16:25:52.117606
+9dc3dde0-1c25-4262-ba1a-8d3117e632c5,Ravi Lucca Correia,qnunes@example.net,2026-06-10,Albuquerque,PR,,2026-08-28 19:49:15.267683
+5a16cfdb-5b50-4f39-b391-263567de58ca,Calebe Pacheco,borgesapollo@example.org,2025-03-27,Costa,BA,816.49,2026-08-27 08:18:40.478809
+ddb538cd-4af0-47ce-b150-52b36046b988,Theo Pinto,ana-carolina55@example.net,2025-03-18,Gonçalves,MG,533.28,2026-08-29 17:10:02.755220
+9d625ccf-92d7-4073-b898-4d54c64ae047,Thiago Oliveira,clarice01@example.net,2026-07-07,Fonseca de Mendes,MG,534.81,2026-08-28 01:02:35.647447
+4e6412b1-87fc-4e12-a0bd-7073f4438d8e,Maria Laura Dias,pastorapollo@example.com,2025-08-31,Sousa,BA,402.36,2026-08-26 17:13:59.366230
+72d175fa-fd81-4510-b6df-0b007a941fa3,Dra. Alexia Viana,caioalmeida@example.net,2025-03-31,Aparecida,PR,978.74,2026-08-24 23:32:14.361860
+b016a069-85fc-49ba-8d20-0629b4b29789,Dr. Pedro Henrique Pacheco,wabreu@example.com,2025-02-02,Mendonça de Nunes,MG,155.08,2026-08-15 07:58:55.708414
+019b899b-5b0c-472c-b6d5-c5277f5a871f,Liam Pinto,sophiaaragao@example.org,2026-03-27,Fernandes,PR,,2026-08-08 13:16:20.378248
+5b2d3224-719b-447c-b2f3-fe81f7ef35da,Léo Pinto,gmendonca@example.org,2025-05-29,Melo da Praia,São Paulo,276.53,2026-08-18 15:00:06.371657
+db4f78cb-75e2-448d-b4a0-a78b93fae50b,Levi Moura,hellena48@example.org,2026-01-22,Correia de Costa,PR,636.17,2026-08-21 13:25:11.424435
+cfcebb10-001b-458f-b239-1ed3ad95bf76,Sra. Ana Clara Cavalcante,ppeixoto@example.com,2025-12-24,Viana de Vieira,SC,730.54,2026-08-30 03:55:45.831042
+9e90eed3-34e0-4ff3-8800-e673c1095964,Sr. Gael Henrique Guerra,barbosaemanuelly@example.net,2025-01-22,Souza,RJ,574.09,2026-08-18 10:03:46.059860
+5ad35467-907b-4653-9721-a61f53f44bfe,Ravi Lucca Correia,jpinto@example.net,2025-12-09,Guerra do Oeste,São Paulo,,2026-08-05 10:57:29.450850
+c965ee94-c2bb-4f18-8b92-5c62c6ed041c,Miguel da Cruz,isiscunha@example.org,2025-02-11,Moreira das Pedras,BA,37.26,2026-08-11 00:25:30.778981
+c81b1276-220d-4230-ba92-4a998b8e5afb,Igor da Costa,daraujo@example.com,2024-10-13,Araújo do Amparo,SC,377.95,2026-08-28 00:28:44.940281
+874f81ce-67f9-47a1-92e3-7b0526654315,Ana Beatriz Caldeira,pimentajulia@example.net,2025-04-09,Costa do Galho,SP,817.42,2026-08-09 13:07:05.650676
+320fd450-18e6-4f88-9e49-bed985f1c23c,Sr. Theodoro da Cunha,fda-cruz@example.com,2025-11-22,Moura,Rio de Janeiro,482.39,2026-08-14 20:22:11.141938
+b169985a-a781-4e79-b4df-c36aa9595a01,Joaquim Rios,thiago63@example.com,2025-08-17,Pimenta dos Dourados,MG,194.29,2026-08-29 06:32:45.762151
+f3d052a5-6130-431b-92b2-514ed70c78b6,Dr. Lucca da Cunha,gabriela26@example.com,2025-08-17,Dias da Serra,sao paulo,304.67,2026-08-29 11:26:34.090196
+7b0935ea-9a89-4f4b-8898-2a57d52690e0,Júlia Teixeira,da-luzvitor@example.com,2025-11-25,Pimenta dos Dourados,PR,620.17,2026-08-03 00:34:23.642011
+332c7cce-3bc7-4563-b754-2fdea53ace15,Levi Pires,da-cunhaana-liz@example.com,2026-05-23,Castro,BA,267.09,2026-08-12 04:35:40.892715
+911c7aa7-c7a7-4b71-86fa-18cf3e34009f,Vitor Alves,isabela14@example.org,2026-05-14,Fogaça de Minas,BA,619.12,2026-08-23 12:21:27.902532
+6058126d-662c-468b-8cdf-fb0fa1e98672,Dr. Leonardo Monteiro,ana-lauracampos@example.org,2024-08-29,Câmara da Serra,sao paulo,,2026-08-26 09:24:15.244726
+4e2e76dc-0d05-4e64-8a6f-21d4979f20b9,Isaac Lopes,ian56@example.com,2026-01-07,Porto,Rio de Janeiro,18.06,2026-08-24 02:00:23.622881
+1b41faa8-f9ab-4e56-862e-4d55169b9296,Dr. Vinicius da Mata,joao-guilherme29@example.com,2025-03-17,Moura,SC,117.68,2026-08-18 07:12:49.261655
+629b3ef6-828e-4822-aa8b-5e7ec3e972a4,Manuella Sousa,camargoluiz-otavio@example.net,2026-07-25,Carvalho da Prata,MG,517.54,2026-08-12 13:42:51.245984
+181108d9-aa5c-4bef-aeca-1cb32dcc746e,Laís Camargo,pimentabella@example.com,2026-04-16,Melo de Ferreira,SP,920.45,2026-07-31 21:21:40.280127
+22be2419-8d07-47b1-8314-59ac3391d8fe,Srta. Maya Duarte,siqueiraalexandre@example.org,2026-01-03,Azevedo,PR,,2026-08-17 03:25:42.719799
+86546a6b-e722-4fd8-97e9-aabbf454aaa4,Luiz Miguel Pinto,maria-clararibeiro@example.com,2025-09-19,Pinto,BA,190.35,2026-08-11 13:51:05.227042
+6724025d-9254-45bb-8b24-9dbd1cad9186,Yasmin Albuquerque,costaana-carolina@example.net,2026-08-01,Guerra,PR,397.14,2026-08-07 04:16:28.464883
+1f9c8d34-9a85-4c76-aa55-a4fbc7697f7f,Maria Helena Sales,fda-luz@example.net,2025-01-20,Sá do Galho,SP,607.85,2026-08-08 23:59:15.097835
+783c3772-2a1d-406c-81b1-385704a20768,Henrique Silveira,caueda-conceicao@example.com,2024-10-12,Azevedo da Serra,BA,26.56,2026-08-20 07:20:39.272582
+f653ff58-705a-46e8-830a-73a4fe868c73,Fernando Cardoso,jesuspietra@example.net,2025-05-30,Costela de Minas,PR,245.6,2026-08-27 15:30:04.184642
+37571eb9-1a36-4575-af89-746239c46093,Arthur Miguel Machado,pramos@example.net,2025-11-06,Sousa Alegre,SC,282.22,2026-08-26 01:50:30.944739
+bb72927e-cda4-4770-ac5a-c57722da72cb,Dra. Alexia Freitas,da-cruzalicia@example.org,2025-04-17,Monteiro do Oeste,São Paulo,896.7,2026-08-26 10:07:32.093195
+beab288d-d125-4a8b-b45f-314390dcef28,Sr. Arthur Cardoso,luiza09@example.net,2024-10-27,Aparecida,PR,,2026-08-13 21:20:30.176850
+7378239b-7236-455b-8cf4-b9a1dde12648,Ayla Rezende,omachado@example.com,2026-01-21,Caldeira de Nogueira,RJ,106.59,2026-08-26 19:31:27.979284
+263a9f56-57aa-4fc9-95c8-3966faf8219c,Mariane Araújo,theosiqueira@example.org,2025-06-22,da Mota,São Paulo,770.84,2026-08-18 07:32:22.997242
+803abfe2-7756-442c-83e2-d6298f236914,Maria Clara Almeida,jadepires@example.net,2026-08-25,Correia de da Cunha,PR,859.29,2026-08-06 22:13:24.314493
+95934994-3bef-4151-b7e6-7c5a248dad05,Henrique Silva,theoabreu@example.org,2025-11-22,Almeida,SC,807.96,2026-08-16 08:35:06.460359
+51ea6d5a-8e81-4c4c-8dd2-ade690c1957e,Sr. Dante Farias,maria-laura60@example.net,2026-04-08,Siqueira do Amparo,SC,46.74,2026-08-19 16:43:42.021564
+3e697c07-e430-466f-bec7-05e811fce5f2,Felipe da Costa,otaviosiqueira@example.org,2026-01-13,Costela,SP,904.11,2026-08-14 11:22:24.758765
+ff2c4acb-972b-4f2c-b6b6-39d79ee728e5,Rafaela Correia,monteiroenzo@example.org,2025-04-02,Brito,MG,,2026-08-09 06:02:50.264474
+8828df0a-fa4e-453e-9a3b-74faaea054af,Oliver Mendes,tfonseca@example.org,2025-07-05,Brito,RJ,936.59,2026-08-14 16:56:36.298022
+538067fa-43cd-4fbf-8261-c21a816a2679,Brenda das Neves,correiaraquel@example.org,2026-07-28,Lopes do Norte,SC,183.75,2026-08-10 14:38:27.401271
+0ccd2d57-5ba6-4272-921e-613f80ce5ada,Luiz Otávio da Mota,ramosmathias@example.org,2024-10-31,Jesus Alegre,São Paulo,973.1,2026-08-27 02:39:21.514483
+34b4f7b6-13ab-4f3a-b84a-4c4596c0f9cf,Alícia da Rocha,rafael96@example.com,2026-02-03,da Cruz,MG,195.31,2026-08-16 19:10:23.978776
+cd41058c-80bb-483b-a9eb-7d8abd88e19f,Breno Fernandes,vrezende@example.com,2026-03-18,Cavalcanti da Praia,PR,742.85,2026-08-12 20:49:39.849941
+7a10906c-a6db-4316-89cd-001bc9f16231,Camila Moreira,renan95@example.com,2025-02-20,Machado Alegre,sao paulo,374.46,2026-08-07 22:15:11.631023
+d628bac2-d32d-4f8e-a3f4-6868a4a346a0,Vitor Hugo Martins,ulima@example.net,2025-11-03,Araújo,rio de janeiro,,2026-08-21 07:49:45.017939
+cd40a1f4-e505-4caf-ba9f-4ec61399757d,Dr. Léo Rocha,pedro08@example.com,2025-01-25,Santos de Pires,SC,453.25,2026-08-24 04:00:22.058702
+492e49c6-1520-4aba-98fc-30d547937cdf,Gabriel da Cruz,clariceda-costa@example.com,2026-08-09,da Luz,sao paulo,36.82,2026-08-25 04:45:59.451647
+01de9840-b061-43a2-8103-502a82d6ef97,Ana Liz Mendonça,pietro32@example.com,2025-08-09,Souza da Prata,SC,,2026-08-04 04:50:18.492187
+956358b5-b7d8-47ec-a6f8-adf2745f3711,Sra. Elisa Novaes,da-mataryan@example.org,2025-07-13,Dias,SC,763.76,2026-08-10 12:33:11.092673
+4536431e-d8e6-4698-ad93-61f46d029486,Valentim Marques,laviniaduarte@example.net,2026-03-20,Peixoto de Fernandes,MG,385.98,2026-08-03 12:02:20.917769
+43eeacba-56d2-4063-aa48-73e7f399409e,Sophia Vargas,nicolebrito@example.org,2025-11-09,da Rocha,SP,461.26,2026-08-09 23:12:24.493393
+1043d3d8-dc63-4cbd-8e3f-6fecb0c20565,Juan da Cruz,da-costajose-miguel@example.org,2025-01-20,Lima Paulista,BA,39.35,2026-08-08 05:02:09.442266
+fadefb08-aab5-4aa0-a732-6da8118fd497,Srta. Luna Montenegro,aviana@example.net,2025-03-23,Carvalho,SC,807.02,2026-08-07 16:18:22.021655
+34b8a45b-b6ee-4f00-bc15-dec200e33075,Alice da Cunha,luizafreitas@example.com,2025-02-27,Monteiro,MG,58.56,2026-08-28 09:16:29.514932
+3b710c95-a8aa-49a8-bfab-d955fe554305,Dr. Lucas Machado,maria-julia24@example.org,2025-09-02,Câmara do Galho,BA,,2026-08-04 22:49:11.495509
+6d5be165-ffb3-4e6b-87ee-736a51bbe3f8,Lavínia Rios,novaesenrico@example.net,2026-05-21,Aragão,rio de janeiro,280.91,2026-08-27 10:16:48.838036
+51171cd2-9d71-41cc-b5db-ec0a876d7b21,João Lucas da Costa,isabel41@example.org,2025-11-12,Brito de Duarte,SP,,2026-08-10 23:55:46.061471
+6571f06e-ac02-47bf-9f42-d119d912665f,Zoe Pires,alvesravi@example.com,2025-01-02,Teixeira Alegre,PR,81.93,2026-08-22 07:02:59.640221
+d61bfd78-dfe7-409e-90f4-ee5c40ffb7af,Oliver Vargas,ferreiracalebe@example.org,2024-10-15,Duarte,BA,546.97,2026-08-03 21:41:19.981684
+2fa3f4d4-4308-4e23-b655-91436cb595a0,Kevin Fernandes,zlopes@example.net,2025-10-08,Vasconcelos,BA,732.18,2026-08-19 13:05:51.386330
+52b83f6e-daa0-49dd-a38e-fe2bd5a23f36,Dr. Yago Aparecida,manuelavargas@example.org,2026-08-13,Abreu dos Dourados,SP,809.85,2026-08-15 21:28:36.937009
+c0a7cf73-b599-4174-87cb-57bb83811362,Matheus Oliveira,xcostela@example.org,2026-07-18,Fogaça do Galho,MG,952.29,2026-08-07 12:58:01.718240
+bd45e65b-0ce0-4afd-9364-51986c214fe4,Alana Nascimento,kgoncalves@example.com,2025-05-26,Abreu da Praia,Rio de Janeiro,,2026-08-05 22:58:54.199474
+223c5444-9897-404a-b4ad-1db6408e02b5,Cauã Nascimento,nogueiraisabella@example.net,2025-11-04,Sales do Galho,BA,244.87,2026-08-04 18:01:25.821667
+9983b753-df97-470d-afe0-37334f7ad8f3,João Guilherme Fernandes,nina21@example.com,2025-12-04,Martins de Goiás,SP,38.49,2026-08-26 09:00:31.024382
+a753925e-e387-4842-a70a-e4e743d4fa6a,Sr. Rodrigo Fogaça,ncamargo@example.com,2025-05-17,Souza,BA,709.28,2026-07-31 22:58:33.984451
+d09cbf3b-3c63-4b81-993a-82e22db52952,Ana Luiza da Conceição,kandrade@example.net,2025-02-14,Rios de Viana,SC,943.69,2026-08-02 02:12:19.780249
+2ed8caab-8204-4d25-959c-52f5e84e0a03,Raul Monteiro,teixeiralorenzo@example.net,2025-06-12,Gonçalves,São Paulo,637.81,2026-08-12 23:44:26.963783
+f5a955cd-9a68-468a-a7de-f85c5ab88dfa,Dr. Francisco Alves,erick05@example.org,2026-06-09,Sá,rio de janeiro,491.73,2026-08-05 10:22:04.737107
+b72ee2ef-9ef7-4f4a-9fd1-260ba4e60766,Cecilia da Paz,henriquerocha@example.com,2025-04-24,Fonseca,MG,806.17,2026-08-20 17:36:13.370565
+7dac9e19-88bc-42c3-a2b0-074eb899326e,Benicio Rocha,vrocha@example.org,2026-05-28,Leão de Goiás,MG,250.32,2026-08-05 20:31:10.663902
+3395cf54-0204-4fa6-87da-f42ec64fa043,Gustavo Henrique Machado,beatriz91@example.net,2025-06-17,da Costa,BA,,2026-08-04 20:47:25.957076
+0c941d93-1bd7-4d00-a82f-6f90c4429e34,Benjamin Fonseca,kaparecida@example.com,2026-09-02,Gonçalves de Mendonça,PR,425.69,2026-08-03 19:37:17.190877
+c167a72c-eee8-4ce6-9843-6f8380fbc58f,Henrique Lopes,maria-juliada-mata@example.net,2026-02-28,Pastor de Sousa,SC,770.79,2026-08-12 05:29:22.113017
+cac5adb5-0e99-43c9-9105-465d2d426bb4,Dr. Luiz Fernando Sá,monteiroester@example.net,2024-10-15,Lopes,SP,432.35,2026-08-11 15:50:34.582787
+30fee6f0-120b-4610-8f40-eb2b3372a52a,Pietra Pires,novaesliam@example.net,2024-09-22,da Mata,BA,340.6,2026-08-04 09:04:43.400311
+c503d5b7-3729-4a38-ae50-3809e9462173,Juan Andrade,evelyn70@example.com,2024-10-31,da Mata,BA,369.87,2026-08-26 18:43:55.625305
+d24b1a3b-9740-47c7-8f54-8e7da249e953,Dr. Leonardo Leão,liviada-mata@example.com,2024-10-17,Leão,MG,537.18,2026-08-15 12:08:18.250262
+3f89fa7a-5881-4293-b204-ba8d26ae9395,Emilly Camargo,borgesvitor-gabriel@example.org,2026-01-10,Fernandes de Minas,sao paulo,875.06,2026-08-30 08:35:22.133669
+a38e2339-8506-432c-9d9c-80ed90c42fb4,Sophie Jesus,elisa72@example.org,2024-12-13,Fernandes Paulista,BA,909.63,2026-08-25 05:40:33.881162
+12aa0346-17e1-4aed-a8f9-57a53ffc4bea,Fernando Oliveira,britovitoria@example.org,2025-07-01,da Paz,BA,,2026-08-29 15:09:27.308419
+6cf79c72-539d-453f-a177-fe7195f3da4b,Maria Luísa das Neves,joao-miguelmonteiro@example.net,2026-06-24,Aparecida do Campo,Rio de Janeiro,359.72,2026-08-06 01:01:15.334671
+ee53192a-f86d-4009-a329-356ff1e066b9,Ana Laura da Mata,calebe98@example.net,2024-09-05,Freitas do Sul,sao paulo,851.58,2026-08-20 10:55:05.585932
+cceb4420-26d6-4a72-b18f-07c40c33aebf,Kevin Duarte,luiz-felipeferreira@example.org,2025-09-10,Pereira de Porto,SC,330.95,2026-08-01 04:13:51.240711
+8a373bbf-99ee-4ff7-9090-5c6a76b26eb4,Juan Araújo,alexia65@example.net,2025-09-15,Aragão,PR,531.82,2026-08-04 01:57:53.224395
+f86b16ae-7ced-4023-b093-97133d144c23,Otávio Cunha,maria-helenaalmeida@example.com,2025-11-17,Marques,SC,511.05,2026-08-25 23:10:28.311920
+d0a06f0d-5b81-4492-8aff-5a571c720796,Ana Liz Montenegro,abarbosa@example.net,2025-05-01,Campos,RJ,651.87,2026-08-03 09:58:20.851555
+d92a912d-cdcc-4a2d-98f1-326d463e4184,Dra. Heloisa Barros,sampaiomaite@example.com,2025-04-17,Andrade,MG,376.55,2026-08-14 18:04:20.188961
+044c59b7-b9bf-4c25-bcaa-011415cfe6a6,Alícia Ramos,fcamargo@example.net,2025-03-24,Aparecida,São Paulo,,2026-08-24 23:28:01.873308
+bfde5993-a444-416d-aa4c-08561f56da51,Sophie Carvalho,liammoura@example.org,2026-02-09,Leão de Minas,MG,,2026-08-13 14:28:40.712930
+a4590671-5ed5-4981-8a93-cc91bbde8089,Ryan Pastor,eduardada-rocha@example.org,2025-09-24,Oliveira,MG,711.64,2026-08-11 19:01:18.292693
+f2c06c5f-921b-4fda-8f30-ed5e159c3501,Sra. Luana Melo,maria-juliacavalcanti@example.com,2025-12-28,Aparecida das Pedras,SC,130.41,2026-08-01 03:28:01.106053
+0fb44795-0f68-48c8-8523-242cd1e62ffb,Dra. Luana Rocha,meloisabel@example.com,2025-12-17,Cunha,rio de janeiro,794.08,2026-08-22 22:42:47.072271
+5c36adb6-1a0c-4481-af34-fda9c26b68f5,Eloá da Paz,vitor26@example.net,2024-12-28,Costela do Campo,PR,207.04,2026-08-28 17:30:23.569931
+d57f8b40-64be-4780-b8e5-44f79a58aea9,Vicente Pacheco,moraeseloah@example.com,2025-12-06,Siqueira do Galho,SP,384.26,2026-08-27 22:09:53.634660
+1047fb7e-1171-4174-993e-7c8a66e89e0f,Emanuella Pires,bfreitas@example.com,2026-07-16,Pinto do Oeste,MG,231.06,2026-08-01 20:56:15.095898
+601372d0-3267-4714-90b9-f1e9b8dac90d,Sr. Cauã Castro,brunapacheco@example.com,2025-11-16,Abreu,SC,728.14,2026-08-14 01:37:00.247859
+97aa3131-4390-4ac3-b60d-b5fda382b003,Luiz Henrique Sá,knovais@example.com,2024-12-22,Leão de da Mota,SP,166.14,2026-08-22 12:29:02.652793
+a094604d-726b-4082-8af1-fff2af58676a,Bento Vasconcelos,thalescunha@example.com,2026-01-20,Melo das Flores,PR,727.98,2026-08-07 00:14:37.634386
+28d896a8-3ebf-4e7e-aa15-8f940b064619,Ana Julia Monteiro,hmendonca@example.org,2026-02-18,Vieira,BA,875.55,2026-08-29 15:36:13.195830
+af3393df-826e-4c7c-8a70-aef555765856,Theo Fonseca,julia28@example.org,2026-05-01,Machado de Cassiano,SC,,2026-08-13 18:49:13.550505
+d5f2d2cb-0582-47dc-8a1b-6c449b4ba95f,Srta. Giovanna Moraes,juandas-neves@example.com,2025-07-26,Souza,São Paulo,213.1,2026-08-04 09:25:12.729822
+6ee50b6b-ab51-49ae-bf0d-65a520b3e050,Mirella Pereira,da-motaana-beatriz@example.net,2026-03-18,Fonseca Alegre,MG,,2026-08-27 04:19:47.472179
+0f8cbab6-fcb0-4096-b779-b6dc584e248b,Dr. Raul Marques,aurora05@example.org,2025-02-14,Macedo,PR,198.62,2026-08-08 10:40:20.399064
+c6d2a955-04fd-444b-9ecd-7abb3614a908,Sr. Luigi Viana,nmoraes@example.com,2025-02-08,Câmara de da Mota,rio de janeiro,,2026-08-03 18:23:34.693519
+f6afae51-969e-424e-bebf-b06c37df4b75,Olívia Sá,sophie96@example.org,2025-03-31,Marques de Goiás,São Paulo,356.32,2026-08-16 23:52:45.543456
+376297b7-7267-4251-bb04-c888e3e1ddb3,Sr. Bruno Rocha,theorezende@example.org,2025-11-27,Mendes da Serra,MG,430.01,2026-08-20 01:07:43.426308
+451718a4-5b27-431f-b9d8-c2586c82a5ef,Davi da Costa,esiqueira@example.net,2026-06-16,Alves de Montenegro,BA,832.0,2026-08-22 20:49:35.997358
+01f1c368-c05c-47bf-a22e-619f323cb5e8,Sr. Eduardo Carvalho,luiz-otavioda-cunha@example.org,2026-08-11,Barbosa,MG,,2026-08-10 16:56:14.341036
+9fe0b9ec-abf0-4c70-a29f-76459c39d3ea,José Miguel Sousa,cunhakaique@example.net,2024-11-29,Moura,São Paulo,,2026-08-16 10:33:59.613713
+5e33d0fe-8be4-41e2-ab18-4e70f632c26a,Dr. Lucca Costa,nicolas52@example.org,2025-11-15,Guerra dos Dourados,SC,474.28,2026-08-16 19:29:46.032542
+07bd726e-6ea5-4048-9b6e-804b55ddc2be,Paulo da Rocha,cda-conceicao@example.net,2025-09-05,Caldeira dos Dourados,Rio de Janeiro,28.73,2026-08-09 20:14:52.934201
+c708eed1-181e-49aa-a969-bdf1e4c6f320,Luiz Felipe Sá,gael32@example.net,2026-08-03,Leão de Costela,sao paulo,239.92,2026-08-14 14:14:24.008665
+8f086904-63f4-42e1-b2fa-8f064a3525c4,Sr. Juan Pereira,jose-pedro16@example.org,2026-07-27,Almeida dos Dourados,PR,96.1,2026-08-01 00:03:49.115462
+a211b528-c994-465a-a90b-f94179cb78fc,Maria Liz Rezende,pachecorhavi@example.net,2025-09-06,Cavalcanti,PR,408.42,2026-08-28 10:28:56.347665
+00166121-2093-411b-839b-5fa97589ac8b,Sr. Luiz Henrique Cirino,rochalucca@example.net,2024-11-13,Rodrigues dos Dourados,SP,,2026-08-28 05:09:20.580122
+8b356b80-ff92-4301-aea3-784916b533bf,Valentim Gonçalves,vasconceloscamila@example.com,2026-04-02,Siqueira,RJ,384.18,2026-08-24 09:19:23.489020
+ff98f860-d5a9-4c68-83bb-a056f088b600,Carlos Eduardo Vargas,asafe91@example.com,2025-04-11,Barbosa,PR,146.05,2026-08-26 16:13:14.298491
+84b75343-416b-4661-a02a-c694b0d694ea,Brenda Viana,souzaeloa@example.net,2024-09-28,Casa Grande,MG,,2026-08-21 16:05:07.262174
+a950c61c-0f53-4dea-97ea-30aab75d6b70,Gustavo Henrique Sales,gabriela40@example.net,2026-07-28,Nunes,sao paulo,,2026-08-04 13:37:17.620110
+0d1ca400-023f-44bd-8e67-7ba222de9e21,Igor Cavalcante,maria-julia49@example.net,2025-06-22,Cirino da Prata,BA,274.28,2026-08-22 22:15:10.564388
+fa65dda3-bc8b-4995-8462-21183442c1d3,Benicio Duarte,camposyago@example.org,2024-09-24,Costa,SC,87.42,2026-08-10 00:35:48.122473
+a8f32df5-50af-46ed-a54c-ec297061236a,Mariane Araújo,brendaalbuquerque@example.org,2025-03-29,Pinto,SC,28.21,2026-08-09 07:41:50.553716
+1bdf30e9-92ef-494f-99c0-1d36afd33361,Carolina Dias,thalescirino@example.com,2025-10-19,Vargas,São Paulo,48.18,2026-08-16 02:29:12.761702
+10c5ea75-89aa-419f-acc9-7333911c62df,Eloá Cardoso,evelyn51@example.net,2026-05-17,Souza,MG,526.34,2026-08-19 09:43:01.711710
+ee933c6b-4100-465f-a993-18ff43c0b940,Lorenzo Barbosa,jadecamargo@example.org,2026-04-08,Pinto de Montenegro,BA,737.47,2026-08-29 11:09:30.248490
